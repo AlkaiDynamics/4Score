@@ -1,0 +1,122 @@
+# Rules - Global Development Principles & Practices:
+
+-   Ask clarifying questions to ensure accurate interpretation of instructions
+-   Avoid ambiguity in feedback and explanations
+-   Provide clear, concise, and structured responses
+-   Circle back to finish points and provide summaries
+
+# Development Environment:
+
+-   {(IF Python is used, THEN)} ALWAYS use virtual environments (e.g., `venv`, `conda`) and ensure they are activated. Specify Python version explicitly (e.g., 3.11)
+-   Specify Node.js version explicitly (e.g., 20.x)
+-   Consistent use of a package manager (e.g., `npm`, `yarn`, `pip`)
+-   IDE configuration for consistent formatting (e.g., Prettier, ESLint)
+
+# Code Organization & Refactoring:
+
+-   Adhere to the 100-200 lines of code per file rule
+-   Modularize code into reusable components and functions
+-   Follow a consistent directory structure (as outlined previously)
+-   Use clear and descriptive names for files, functions, variables, and components
+
+# Development Workflow:
+
+-   ALWAYS separate Dev, Test, Prod environments and databases
+-   ALWAYS preserve working code unless changes are explicitly requested
+-   ALWAYS map out ALL affected files before making ANY changes
+-   ALWAYS test each change in isolation
+-   ALWAYS document each change in the change log (or Git commit messages)
+-   ALWAYS prioritize low/zero-cost, open-source solutions
+-   ALWAYS use version control (Git) for code changes
+-   ALWAYS apply few-shot learning from successful architectures; use them as templates
+-   ALWAYS produce technically excellent, yet practical solutions
+-   ALWAYS use chain-of-hindsight reflection for long-term implications
+-   ALWAYS avoid placeholders and mock data whenever possible but, if necessary, then clearly label
+-   ALWAYS remove redundant or unused code quickly
+
+# Error Handling:
+
+-   Implement robust error handling to prevent app crashes
+-   Log errors effectively for debugging
+-   Provide user-friendly error messages
+
+# Performance Optimization:
+
+-   Optimize code for performance, especially in mobile (React Native)
+-   Lazy-load resources where possible
+-   Minimize network requests
+
+# Security Best Practices:
+
+-   Follow secure coding practices to prevent vulnerabilities
+-   Validate user input to prevent injection attacks
+-   Securely store sensitive data
+-   Use `fireward/fireward` to manage Firestore security rules
+
+# II. Technology-Specific Conventions:
+
+## React Native:
+
+-   Use functional components with hooks (where appropriate)
+-   Follow React best practices for state management (useState, useContext, or a state management library)
+-   Use consistent styling (e.g., styled-components, or React Native's StyleSheet)
+-   Optimize for mobile performance (e.g., `useMemo`, `useCallback`, `FlatList`)
+-   Properly handle asynchronous operations
+-   Document component props and usage
+
+## Firebase:
+
+-   Structure Firestore data according to the defined schema
+-   Use appropriate Firestore queries and indexing
+-   Secure Firestore rules using `fireward/fireward`
+-   Use Firebase Cloud Functions for backend logic, triggered by events or scheduled tasks
+-   Handle Firebase errors gracefully
+-   Optimize Firebase Storage usage
+
+## JavaScript/TypeScript:
+
+-   Use ES6+ features
+-   Consider TypeScript for enhanced type safety (if you're comfortable with it).
+-   Follow consistent code formatting (Prettier)
+-   Use linting (ESLint) to catch errors and enforce code style
+-   Document code with JSDoc or similar
+
+## Python (if used):
+
+-   Follow PEP 8 style guide
+-   Use type hints
+-   Write clear and concise code
+-   Document code with docstrings
+-   Handle exceptions appropriately
+
+## CSS:
+
+-   Use a consistent naming convention (e.g., BEM)
+-   Organize CSS files logically
+-   Use CSS variables for theming
+-   Optimize CSS for performance
+
+# III. Project-Specific Conventions:
+
+-   F.O.U.R. Naming: If it makes sense, consider incorporating the F.O.U.R. principles into naming conventions (e.g., `ForgeWorkoutComponent`, `OptimizeNutritionService`)
+-   Color Scheme: Maintain the established color scheme (navy blue, deep red, gold accents) consistently across all components and styles
+-   UI Consistency: Ensure consistent UI elements and patterns throughout the app (e.g., button styles, header styles, navigation patterns)
+-   Chatbot Styling: Adhere to the specified chat interface styling (AI messages in deep red bubbles, user messages in navy bubbles)
+
+### IV. Code Review Practices:
+
+-   (Since you're solo, this is more for future maintainability, but beneficial to self-enforce)
+-   Review code regularly (even your own)
+-   Focus on code clarity, correctness, and maintainability
+-   Provide constructive feedback
+-   Document code review findings
+
+### V. Documentation Practices:
+
+-   Document all code thoroughly (using comments, docstrings, etc.)
+-   Keep documentation up-to-date
+-   Document the Firestore schema
+-   Document API endpoints and data structures
+-   Provide clear instructions for setting up the development environment
+-   Document the app's architecture and design decisions
+-   Create user documentation (if needed for the client)

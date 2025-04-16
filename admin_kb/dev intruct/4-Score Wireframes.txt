@@ -1,0 +1,1173 @@
+﻿General Principles for Conversion
+
+I'll use the provided Code Descriptor tags (<Component>, <Layout>, <Action>, <DataBinding>) instead of the original descriptive styling.
+I'll map the original styling properties (font, size, color, etc.) to the appropriate attributes within the <Component> tags.
+I'll group components within <Layout> tags to reflect their arrangement in the wireframes.
+For interactive elements, I'll use <Action> tags where necessary.
+I'll maintain the original content and structure of the wireframes, only changing the syntax to use Code Descriptors.
+Rewritten Wireframe Document (First 10 Views)
+
+XML
+
+
+# 4-Score Fitness App Wireframes
+
+## I. Authentication & Onboarding Views
+
+### 1. Landing Page View
+
+```xml
+<Layout type="VerticalScroll" background="#171717">
+  <Header>
+    <Component type="Banner" background="#520606" watermark="presidentialSeal" logo="4Score" />
+  </Header>
+  <Component type="HeroImage" image="flag_background.jpg" />
+  <Component type="Headline" text="Achieve Your Peak Fitness with the F.O.U.R. Score System" font="Mandrel Ext" weight="Extra-bold" size="36" color="#DAE1E9" align="center" margin="0 0 24 0" />
+  <Component type="Carousel" content="App screenshots" />
+  <Component type="TestimonialsSection" />
+  <Layout type="HorizontalButtons">
+    <Component type="CTAButton" text="Sign Up" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" borderColor="#96854A" glow="blue" onPress="<Action type='Navigation' target='SignUpView' />" />
+    <Component type="CTAButton" text="Learn More" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#520606" borderColor="#96854A" onPress="<Action type='Navigation' target='LearnMore' />" /> 
+  </Layout>
+  <Footer>
+    <Component type="FOURIconsBar" />
+  </Footer>
+</Layout>
+2. Sign-in View
+XML
+
+<Layout type="Form" background="#171717">
+  <Header>
+    <Component type="Banner" background="#520606" logo="4Score" />
+  </Header>
+  <Component type="Input" label="Username/Email" fieldId="email" font="Poppins" size="16" color="#DAE1E9" background="#171717" border="#96854A" />
+  <Component type="Input" label="Password" fieldId="password" type="password" toggleVisibility="true" font="Poppins" size="16" color="#DAE1E9" background="#171717" border="#96854A" />
+  <Component type="Checkbox" label="Remember Me" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="Link" text="Forgot Password?" onPress="<Action type='Navigation' target='ResetPasswordView' />" font="Poppins" size="14" color="#96854A" align="right" />
+  <Component type="CTAButton" text="Sign In" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='Submit' target='SignInHandler' />" />
+  <Component type="Link" text="New user? Sign up" onPress="<Action type='Navigation' target='SignUpView' />" font="Poppins" size="14" color="#96854A" align="center" />
+</Layout>
+3. Sign-up/Register View
+XML
+
+<Layout type="Form" background="#171717">
+  <Header>
+    <Component type="Banner" background="#520606" logo="4Score" />
+  </Header>
+  <Component type="Input" label="Username" fieldId="username" font="Poppins" size="16" color="#DAE1E9" background="#171717" border="#96854A" />
+  <Component type="Input" label="Email" fieldId="email" font="Poppins" size="16" color="#DAE1E9" background="#171717" border="#96854A" />
+  <Component type="Input" label="Password" fieldId="password" type="password" font="Poppins" size="16" color="#DAE1E9" background="#171717" border="#96854A" />
+  <Component type="Input" label="Confirm Password" fieldId="confirmPassword" type="password" font="Poppins" size="16" color="#DAE1E9" background="#171717" border="#96854A" />
+  <Component type="Checkbox" label="I agree to the Terms & Conditions" fieldId="terms" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="CTAButton" text="Register" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='Submit' target='RegisterHandler' />" />
+  <Component type="Link" text="Already have an account? Sign In" onPress="<Action type='Navigation' target='SignInView' />" font="Poppins" size="14" color="#96854A" align="center" />
+</Layout>
+4. Reset Password View
+XML
+
+<Layout type="Form" background="#171717">
+  <Header>
+    <Component type="Banner" background="#520606" logo="4Score" />
+  </Header>
+  <Component type="Input" label="Enter your email" fieldId="resetEmail" font="Poppins" size="16" color="#DAE1E9" background="#171717" border="#96854A" />
+  <Component type="SecurityVerification" /> 
+  <Component type="CTAButton" text="Submit" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='Submit' target='SendResetEmail' />" />
+  <Footer>
+    <Component type="Text" text="Contact support if you're having issues" font="Poppins" size="12" color="#DAE1E9" align="center" />
+  </Footer>
+</Layout>
+5. The Range (Home View)
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="Banner" background="#520606" watermark="presidentialSeal" logo="4Score" />
+  </Header>
+  <Component type="QuickStatsDashboard" />
+  <Layout type="Grid" columns="2" spacing="16">
+    <Component type="FButton" label="Forge" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" background="#520606" onPress="<Action type='Navigation' target='ForgeScreen' />" />
+    <Component type="FButton" label="Optimize" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" background="#520606" onPress="<Action type='Navigation' target='OptimizeScreen' />" />
+    <Component type="FButton" label="Unite" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" background="#520606" onPress="<Action type='Navigation' target='UniteScreen' />" />
+    <Component type="FButton" label="Recover" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" background="#520606" onPress="<Action type='Navigation' target='RecoverScreen' />" />
+  </Layout>
+  <Component type="BlogCards" count="3" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionPreview" label="Forge" />
+    <Component type="SectionPreview" label="Optimize" />
+    <Component type="SectionPreview" label="Unite" />
+    <Component type="SectionPreview" label="Recover" />
+  </Layout>
+  <Component type="CalendarWidget" />
+  <Component type="EventSection" />
+  <Component type="TrackersPreview" />
+  <Component type="LibertyBellsPreview" />
+  <Component type="MapsSection" />
+  <Component type="WearablesConnection" />
+  <Footer>
+    <Component type="TabNavigation" activeTab="Range" />
+    <Component type="ChatbotButton" />
+  </Footer>
+</Layout>
+6. The Range Extended (Home View Expanded Modules)
+XML
+
+<Layout type="TabsExpandable">
+  <Component type="WorkoutPreviewCards" />
+  <Component type="NutritionSummaryMini" />
+  <Component type="CommunityUpdateFeed" />
+  <Component type="SleepMetricsCompact" />
+  <Component type="EventsCalendarMini" />
+  <Component type="WearableIntegrations" />
+</Layout>
+7. User Profile View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Component type="ProfileBanner" />
+  <Component type="UserDetails" />
+  <Layout type="HorizontalButtons">
+    <Component type="CTAButton" text="Show Data" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#520606" onPress="<Action type='Navigation' target='ProgressLogsView' />" />
+    <Component type="CTAButton" text="Edit Profile" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#520606" onPress="<Action type='Navigation' target='EditProfileView' />" />
+  </Layout>
+  <Component type="UserStats" metrics="workouts, streak, progress, hydration" />
+  <Component type="ActivityFeed" />
+  <Component type="CommunityPosts" />
+  <Component type="InviteSection" />
+  <Footer>
+    <Component type="TabNavigation" activeTab="Profile" />
+  </Footer>
+</Layout>
+8. User Settings View
+XML
+
+<Layout type="Form" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Settings" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="SectionHeader" title="Account Settings" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+  <Component type="ToggleGroup" items="Notification Preferences" />
+  <Component type="Select" label="App Appearance" options="Light, Dark, System" />
+  <Component type="Link" text="Subscription Management" onPress="<Action type='Navigation' target='SubscriptionManagementView' />" />
+  <Component type="DataOptions" />
+  <Component type="LinkGroup" items="Support, Feedback" />
+  <Component type="CTAButton" text="Save Changes" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='Submit' target='SaveChanges' />" />
+</Layout>
+9. User Account View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Account" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="ProfileSummary" />
+  <Component type="SubscriptionStatus" />
+  <Component type="BillingInfo" />
+  <Component type="PaymentHistory" />
+  <Component type="SecurityOptions" />
+  <Component type="ConnectedServicesList" />
+  <Layout type="HorizontalButtons">
+    <Component type="CTAButton" text="Edit Account" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#520606" onPress="<Action type='Navigation' target='EditAccountView' />" />
+    <Component type="CTAButton" text="Manage Subscription" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='SubscriptionManagementView' />" />
+  </Layout>
+</Layout>
+10. Forge - Workout Planner View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Forge" watermark="presidentialSeal" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="HorizontalScroll">
+    <Component type="WorkoutCategoryTab" />
+  </Layout>
+  <Component type="WorkoutCardGrid">
+    <Component type="WorkoutCard" title="HIIT Burn" duration="30min" difficulty="Medium" preview="true" />
+    <Component type="WorkoutCard" title="Upper Body Blast" duration="45min" difficulty="Hard" preview="true" />
+  </Component>
+  <Component type="CTAButton" text="Create Custom Workout" font="Mandrel Ext" weight="Extra-bold" size="16" color="#96854A" background="transparent" border="#96854A" onPress="<Action type='Navigation' target='CreateCustomWorkoutView' />" />
+  <Component type="RecentWorkoutsList" />
+  <Footer>
+    <Component type="TabNavigation" activeTab="Forge" />
+  </Footer>
+</Layout>
+
+
+
+
+
+Notes on the Conversion:
+
+I have consistently used the Code Descriptor tags as defined in the instructions.
+I have mapped font properties to font and weight attributes.
+I have used <Layout> tags to structure the components (e.g., HorizontalButtons, Grid, VerticalStack).
+I have included <Action> tags for buttons and links to indicate navigation.
+I have maintained the original text content and organization of the wireframes.
+I've added a placeholder action for the "Learn More" button in the first view (<Action type='Navigation' target='LearnMore' />). You'll need to define what "Learn More" navigates to.
+I've assumed navigation actions for buttons like "Edit Profile" and "Manage Subscription." You may need to adjust the target attribute based on your actual navigation structure.
+
+
+
+
+
+
+
+
+
+11. Forge - Workout Detail View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Workout Details" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="HorizontalStack" justify="center" spacing="16">
+    <Component type="StatLabel" label="Time" value="<DataBinding source='workout.duration' />" icon="clock" font="Poppins" size="14" color="#DAE1E9" />
+    <Component type="StatLabel" label="Energy" value="<DataBinding source='workout.calories' />" icon="fire" font="Poppins" size="14" color="#DAE1E9" />
+    <Component type="StatLabel" label="Difficulty" value="<DataBinding source='workout.difficulty' />" icon="star" font="Poppins" size="14" color="#DAE1E9" />
+  </Layout>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="ExerciseList" exercises="<DataBinding source='workout.exercises' />" />
+  </Layout>
+  <Component type="CTAButton" text="Start Workout" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='Navigation' target='ActiveWorkoutView' />" margin="24 0 0 0" />
+  <Layout type="HorizontalStack" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="IconButton" icon="share" color="#FFFFFF" onPress="<Action type='Share' />" />
+    <Component type="IconButton" icon="save" color="#FFFFFF" onPress="<Action type='Toggle' target='workout.isSaved' />" />
+  </Layout>
+</Layout>
+12. Forge - Active Workout View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TimerDisplay" duration="<DataBinding source='activeWorkout.elapsedTime' />" font="Mandrel Ext" weight="Extra-bold" size="60" color="#FFFFFF" align="center" />
+    <Component type="Title" text="<DataBinding source='activeWorkout.name' />" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" align="center" />
+  </Header>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="ExerciseName" text="<DataBinding source='activeExercise.name' />" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" align="center" />
+    <Component type="ExerciseDescription" text="<DataBinding source='activeExercise.description' />" font="Poppins" size="14" color="#DAE1E9" align="center" />
+    <Component type="ExerciseVisual" source="<DataBinding source='activeExercise.mediaUrl' />" />
+    <Component type="ExerciseProgress" current="<DataBinding source='activeExercise.index' />" total="<DataBinding source='activeWorkout.totalExercises' />" font="Poppins" size="16" color="#FFFFFF" align="center" />
+  </Layout>
+  <Layout type="HorizontalButtons" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="IconButton" icon="backArrow" color="#FFFFFF" onPress="<Action type='Decrement' target='activeExercise.index' />" disabled="<DataBinding source='activeExercise.isFirst' />" />
+    <Component type="IconButton" icon="pausePlay" color="#FFFFFF" onPress="<Action type='Toggle' target='activeWorkout.isPaused' />" />
+    <Component type="IconButton" icon="forwardArrow" color="#FFFFFF" onPress="<Action type='Increment' target='activeExercise.index' />" disabled="<DataBinding source='activeExercise.isLast' />" />
+  </Layout>
+  <Component type="RepCounter" count="<DataBinding source='activeExercise.repsCompleted' />" label="Reps" font="Poppins" size="14" color="#DAE1E9" counterFont="Mandrel Ext" counterSize="48" counterColor="#FFFFFF" align="center" />
+  <Layout type="HorizontalScroll" margin="24 0 0 0">
+    <Component type="ExerciseThumbnails" exercises="<DataBinding source='activeWorkout.exercises' />" onPress="<Action type='Navigation' target='ExerciseDetailView' params='{ exerciseId: item.id }' />" />
+  </Layout>
+</Layout>
+13. Forge - Workout Calendar View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Workout Calendar" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="Calendar" events="<DataBinding source='user.workoutSchedule' />" eventColors="{ workout: '#5D2121', meal: '#520606', challenge: '#96854A', recovery: '#4CAF50' }" onDayPress="<Action type='Update' target='selectedDate' />" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Workout Details" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="WorkoutList" workouts="<DataBinding source='selectedDate.workouts' />" />
+  </Layout>
+  <Component type="FloatingActionButton" icon="add" color="#FFFFFF" background="#5D2121" onPress="<Action type='ShowModal' target='AddWorkoutModal' />" position="bottomRight" />
+  <Layout type="VerticalStack" spacing="24" margin="24 0 0 0">
+    <Component type="SectionTitle" text="Upcoming Workouts" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="WorkoutReminders" reminders="<DataBinding source='user.workoutReminders' />" />
+  </Layout>
+</Layout>
+14. Forge - Workout Tracker View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Workout History" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="WorkoutTimeline" workouts="<DataBinding source='user.workoutHistory' />" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Workout Summary" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="WorkoutStats" totalWorkouts="<DataBinding source='user.totalWorkouts' />" favoriteTypes="<DataBinding source='user.favoriteWorkoutTypes' />" font="Poppins" size="14" color="#DAE1E9" />
+  </Layout>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Progress Overview" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="ProgressGraphs" data="<DataBinding source='user.workoutProgress' />" />
+  </Layout>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="My Achievements" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="AchievementCards" achievements="<DataBinding source='user.workoutAchievements' />" />
+  </Layout>
+  <Layout type="HorizontalScroll">
+    <Component type="FilterButton" label="Date Range" onPress="<Action type='ShowModal' target='DateRangeFilterModal' />" />
+    <Component type="FilterButton" label="Workout Type" onPress="<Action type='ShowModal' target='WorkoutTypeFilterModal' />" />
+    <Component type="FilterButton" label="Metrics" onPress="<Action type='ShowModal' target='MetricsFilterModal' />" />
+  </Layout>
+</Layout>
+15. Optimize - Nutrition Planning View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Optimize" watermark="presidentialSeal" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="HorizontalTabs" tabs="['Today', 'Week View']" activeTab="<DataBinding source='selectedTab' />" onTabChange="<Action type='Update' target='selectedTab' />" />
+  <Layout type="VerticalStack" spacing="16">
+    <Component type="MealCard" mealType="Breakfast" meal="<DataBinding source='meals.breakfast' />" onEdit="<Action type='Navigation' target='MealEditView' params='{ mealType: 'breakfast' }' />" />
+    <Component type="MealCard" mealType="Lunch" meal="<DataBinding source='meals.lunch' />" onEdit="<Action type='Navigation' target='MealEditView' params='{ mealType: 'lunch' }' />" />
+    <Component type="MealCard" mealType="Dinner" meal="<DataBinding source='meals.dinner' />" onEdit="<Action type='Navigation' target='MealEditView' params='{ mealType: 'dinner' }' />" />
+    <Component type="MealCard" mealType="Snacks" meal="<DataBinding source='meals.snacks' />" onEdit="<Action type='Navigation' target='MealEditView' params='{ mealType: 'snacks' }' />" />
+  </Layout>
+  <Component type="NutritionSummary" summary="<DataBinding source='nutrition.dailySummary' />" macroBreakdown="<DataBinding source='nutrition.macroBreakdown' />" />
+  <Layout type="HorizontalScroll">
+    <Component type="MealSuggestionCard" meal="<DataBinding source='recommendedMeals[0]' />" />
+    <Component type="MealSuggestionCard" meal="<DataBinding source='recommendedMeals[1]' />" />
+    <Component type="MealSuggestionCard" meal="<DataBinding source='recommendedMeals[2]' />" />
+  </Layout>
+  <Component type="CTAButton" text="Plan New Meal" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='Navigation' target='MealPlanningView' />" margin="24 0 0 0" />
+</Layout>
+16. Optimize - Nutrition Calendar View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Meal Calendar" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="Calendar" events="<DataBinding source='user.mealSchedule' />" eventIndicator="food" onDayPress="<Action type='Update' target='selectedDate' />" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Meal Details" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="MealList" meals="<DataBinding source='selectedDate.meals' />" />
+  </Layout>
+  <Component type="NutritionTotals" totals="<DataBinding source='selectedDate.nutritionTotals' />" />
+  <Layout type="HorizontalScroll">
+    <Component type="MealTemplateButton" template="Quick Breakfast" onPress="<Action type='AddMealTemplate' params='{ template: 'Quick Breakfast', date: selectedDate }' />" />
+    <Component type="MealTemplateButton" template="Post-Workout Shake" onPress="<Action type='AddMealTemplate' params='{ template: 'Post-Workout Shake', date: selectedDate }' />" />
+    <Component type="MealTemplateButton" template="Balanced Lunch" onPress="<Action type='AddMealTemplate' params='{ template: 'Balanced Lunch', date: selectedDate }' />" />
+  </Layout>
+</Layout>
+17. Optimize - Instacart Ordering View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Grocery Order" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="IngredientList" ingredients="<DataBinding source='mealPlan.ingredients' />" onQuantityChange="<Action type='Update' target='ingredient.quantity' />" />
+  </Layout>
+  <Layout type="HorizontalScroll">
+    <Component type="IngredientSuggestionCard" suggestion="<DataBinding source='ingredient.suggestions[0]' />" onSelect="<Action type='Replace' target='ingredient' />" />
+    <Component type="IngredientSuggestionCard" suggestion="<DataBinding source='ingredient.suggestions[1]' />" onSelect="<Action type='Replace' target='ingredient' />" />
+  </Layout>
+  <Component type="CTAButton" text="Add to Instacart Cart" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#4CAF50" onPress="<Action type='API' target='instacart.addToCart' params='{ items: mealPlan.ingredients }' />" />
+  <Component type="OrderSummary" cost="<DataBinding source='order.totalCost' />" deliveryFee="<DataBinding source='order.deliveryFee' />" />
+  <Layout type="HorizontalButtons" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="CTAButton" text="Add to Cart" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#4CAF50" onPress="<Action type='API' target='instacart.addToCart' params='{ items: mealPlan.ingredients }' />" />
+    <Component type="CTAButton" text="Checkout" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='CheckoutView' />" />
+  </Layout>
+</Layout>
+18. Optimize - Nutrition Supplement View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Supplements" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="My Supplements" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="SupplementList" supplements="<DataBinding source='user.supplements' />" />
+  </Layout>
+  <Layout type="HorizontalScroll">
+    <Component type="SupplementCard" supplement="<DataBinding source='recommendedSupplements[0]' />" onAdd="<Action type='Add' target='user.supplements' />" />
+    <Component type="SupplementCard" supplement="<DataBinding source='recommendedSupplements[1]' />" onAdd="<Action type='Add' target='user.supplements' />" />
+  </Layout>
+  <Component type="Link" text="Purchase Supplements" onPress="<Action type='Navigation' target='SupplementShopView' />" font="Poppins" size="16" color="#96854A" />
+</Layout>
+19. Optimize - Nutrition Tracker View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Nutrition Log" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="FoodLog" entries="<DataBinding source='user.foodLog' />" />
+  </Layout>
+  <Layout type="HorizontalButtons">
+    <Component type="CTAButton" text="Add Food" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='ShowModal' target='AddFoodModal' />" />
+    <Component type="CTAButton" text="Scan Barcode" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='API' target='camera.scanBarcode' />" />
+  </Layout>
+  <Component type="MacroProgressBars" macros="<DataBinding source='user.dailyMacros' />" />
+  <Component type="WaterIntakeTracker" intake="<DataBinding source='user.waterIntake' />" onAdd="<Action type='Increment' target='user.waterIntake' />" />
+  <Component type="NutritionInsights" insights="<DataBinding source='user.nutritionInsights' />" />
+</Layout>
+20. Unite - Social Hub Main View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Unite" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="CreatePostBar" />
+  <Component type="Feed" posts="<DataBinding source='community.feed' />" />
+  <Layout type="HorizontalScroll">
+    <Component type="TrendingTopicCard" topic="<DataBinding source='community.trendingTopics[0]' />" />
+    <Component type="TrendingTopicCard" topic="<DataBinding source='community.trendingTopics[1]' />" />
+  </Layout>
+  <Layout type="HorizontalScroll">
+    <Component type="SuggestedConnectionCard" user="<DataBinding source='community.suggestedConnections[0]' />" onAdd="<Action type='API' target='community.addFriend' />" />
+    <Component type="SuggestedConnectionCard" user="<DataBinding source='community.suggestedConnections[1]' />" onAdd="<Action type='API' target='community.addFriend' />" />
+  </Layout>
+  <Footer>
+    <Component type="TabNavigation" activeTab="Unite" />
+  </Footer>
+</Layout>
+
+
+
+
+
+
+
+
+Key Points:
+
+I've tried to be as accurate as possible in interpreting the original wireframe descriptions and mapping them to Code Descriptors.
+I've used <DataBinding> where it seems appropriate to indicate dynamic data. You'll need to define the actual data sources and formats.
+I've used placeholder targets for actions (e.g., Navigation targets). Please replace these with your actual screen or function names.
+I've added some layout components (e.g., ExerciseList, MacroProgressBars) that would likely be custom components in your app. Adjust these as needed.
+I've focused on the structure and styling aspects as much as possible, given the information available in the wireframes.
+
+
+
+
+
+
+21. Unite - Social Calendar View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Community Calendar" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="Calendar" events="<DataBinding source='community.events' />" eventIndicator="goldDot" onDayPress="<Action type='Update' target='selectedDate' />" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Event Details" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="EventCardList" events="<DataBinding source='selectedDate.events' />" />
+  </Layout>
+  <Layout type="HorizontalScroll">
+    <Component type="EventFilterTab" label="All" onPress="<Action type='Update' target='eventFilter' params='{ filter: 'all' }' />" />
+    <Component type="EventFilterTab" label="Workouts" onPress="<Action type='Update' target='eventFilter' params='{ filter: 'workout' }' />" />
+     <Component type="EventFilterTab" label="Nutrition" onPress="<Action type='Update' target='eventFilter' params='{ filter: 'nutrition' }' />" />
+    <Component type="EventFilterTab" label="Social" onPress="<Action type='Update' target='eventFilter' params='{ filter: 'social' }' />" />
+  </Layout>
+  <Component type="FloatingActionButton" icon="add" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='CreateEventView' />" position="bottomRight" />
+</Layout>
+22. Pony Express - Messaging Main View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Messages" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="ContactSearchInput" placeholder="Search contacts..." onSearch="<Action type='API' target='user.searchContacts' />" />
+  <Component type="ConversationList" conversations="<DataBinding source='user.conversations' />" onPress="<Action type='Navigation' target='ConversationView' params='{ chatId: item.id }' />" />
+  <Layout type="HorizontalButtons" justify="flex-end">
+    <Component type="FloatingActionButton" icon="add" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='NewConversationView' />" />
+  </Layout>
+  <Layout type="HorizontalTabs" tabs="['All', 'Unread', 'Groups']" activeTab="<DataBinding source='selectedTab' />" onTabChange="<Action type='Update' target='selectedTab' />" />
+</Layout>
+23. Pony Express - Message Conversation View
+XML
+
+<Layout type="ChatInterface" background="#171717">
+  <Header>
+    <Component type="ChatHeader" title="<DataBinding source='chat.title' />" user="<DataBinding source='chat. собеседник' />" />
+  </Header>
+  <Component type="ChatMessageList" messages="<DataBinding source='chat.messages' />" />
+  <Component type="TypingIndicator" isTyping="<DataBinding source='chat.isTyping' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Layout type="HorizontalStack" spacing="8">
+    <Component type="IconButton" icon="image" color="#FFFFFF" onPress="<Action type='API' target='camera.pickImage' />" />
+    <Component type="IconButton" icon="video" color="#FFFFFF" onPress="<Action type='API' target='camera.pickVideo' />" />
+    <Component type="IconButton" icon="audio" color="#FFFFFF" onPress="<Action type='API' target='audio.record' />" />
+    <Component type="IconButton" icon="workout" color="#96854A" onPress="<Action type='ShowModal' target='ShareWorkoutModal' />" />
+    <Component type="IconButton" icon="meal" color="#96854A" onPress="<Action type='ShowModal' target='ShareMealModal' />" />
+  </Layout>
+  <Component type="ChatInput" placeholder="Type your message..." value="<DataBinding source='newMessage' />" onTextChange="<Action type='Update' target='newMessage' />" onSend="<Action type='API' target='chat.sendMessage' params='{ text: newMessage }' />" />
+</Layout>
+24. Recover - Sleep Tracker Summary View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Recover" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="SleepScoreCard" score="<DataBinding source='sleep.lastNight.score' />" rating="<DataBinding source='sleep.lastNight.rating' />" font="Poppins" size="16" color="#DAE1E9" />
+  <Component type="SleepDetails" details="<DataBinding source='sleep.lastNight.details' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="SleepStageGraph" stages="<DataBinding source='sleep.lastWeek.stages' />" />
+  <Component type="SleepPatternChart" pattern="<DataBinding source='sleep.weeklyPattern' />" />
+  <Component type="SleepRecommendations" recommendations="<DataBinding source='sleep.recommendations' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="CTAButton" text="Set Sleep Goal" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='Navigation' target='SetSleepGoalView' />" margin="24 0 0 0" />
+</Layout>
+25. Recover - Sleep Log View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Sleep Log" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="Calendar" events="<DataBinding source='user.sleepLog' />" eventIndicator="sleepQuality" onDayPress="<Action type='Update' target='selectedDate' />" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Sleep Details" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="SleepLogEntries" entries="<DataBinding source='selectedDate.sleepEntries' />" />
+  </Layout>
+  <Component type="SleepAverages" averages="<DataBinding source='selectedDate.sleepAverages' />" font="Poppins" size="14" color="#FFFFFF" />
+  <Component type="CTAButton" text="Export Data" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='API' target='data.exportSleepLogs' />" />
+</Layout>
+26. Recover - Sleep Timer View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Sleep Timer" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="TimePicker" label="Bedtime" value="<DataBinding source='sleepTimer.bedtime' />" onValueChange="<Action type='Update' target='sleepTimer.bedtime' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Component type="TimePicker" label="Wake Time" value="<DataBinding source='sleepTimer.wakeTime' />" onValueChange="<Action type='Update' target='sleepTimer.wakeTime' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Component type="SleepSoundsSelector" sounds="<DataBinding source='sleepTimer.sounds' />" selectedSound="<DataBinding source='sleepTimer.selectedSound' />" onSoundSelect="<Action type='Update' target='sleepTimer.selectedSound' />" />
+  <Component type="AlarmConfiguration" alarmSound="<DataBinding source='sleepTimer.alarmSound' />" snoozeOptions="<DataBinding source='sleepTimer.snoozeOptions' />" />
+  <Component type="SmartWakeUpToggle" isEnabled="<DataBinding source='sleepTimer.smartWakeUp' />" onToggle="<Action type='Toggle' target='sleepTimer.smartWakeUp' />" />
+  <Component type="SleepRoutineReminders" reminders="<DataBinding source='user.sleepRoutineReminders' />" />
+  <Component type="CTAButton" text="Start Sleep Timer" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='StartTimer' target='sleepTimer' />" margin="24 0 0 0" />
+</Layout>
+27. Recover - Sleep Schedule Calendar View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Sleep Schedule" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="SleepScheduleCalendar" schedule="<DataBinding source='user.sleepSchedule' />" />
+  <Component type="ConsistencyMetrics" metrics="<DataBinding source='user.sleepScheduleConsistency' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="ScheduleAdjustmentTools" onAdjust="<Action type='API' target='user.adjustSleepSchedule' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="SleepDebtCalculator" debt="<DataBinding source='user.sleepDebt' />" />
+</Layout>
+28. Liberty Bells - Timers Collection View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Liberty Bells" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="VerticalList" spacing="24">
+    <Component type="TimerCategoryCard" category="Workout Timers" icon="workout" onPress="<Action type='Navigation' target='WorkoutTimersView' />" />
+    <Component type="TimerCategoryCard" category="Fasting Timers" icon="fasting" onPress="<Action type='Navigation' target='FastingTimersView' />" />
+    <Component type="TimerCategoryCard" category="Other Timers" icon="other" onPress="<Action type='Navigation' target='OtherTimersView' />" />
+  </Layout>
+  <Layout type="HorizontalScroll">
+    <Component type="RecentTimerCard" timer="<DataBinding source='user.recentTimers[0]' />" onStart="<Action type='StartTimer' target='recentTimer' />" />
+    <Component type="RecentTimerCard" timer="<DataBinding source='user.recentTimers[1]' />" onStart="<Action type='StartTimer' target='recentTimer' />" />
+  </Layout>
+  <Layout type="HorizontalScroll">
+    <Component type="FavoriteTimerCard" timer="<DataBinding source='user.favoriteTimers[0]' />" onStart="<Action type='StartTimer' target='favoriteTimer' />" />
+    <Component type="FavoriteTimerCard" timer="<DataBinding source='user.favoriteTimers[1]' />" onStart="<Action type='StartTimer' target='favoriteTimer' />" />
+  </Layout>
+  <Component type="CTAButton" text="Create New Timer" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='Navigation' target='CreateTimerView' />" margin="24 0 0 0" />
+</Layout>
+29. Forge - Liberty Bells - Workout Timer View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Interval Timer" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="LargeTimerDisplay" duration="<DataBinding source='intervalTimer.displayTime' />" font="Mandrel Ext" weight="Extra-bold" size="80" color="#FFFFFF" align="center" />
+  <Component type="IntervalVisualization" intervals="<DataBinding source='intervalTimer.intervals' />" currentInterval="<DataBinding source='intervalTimer.currentIntervalIndex' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="IntervalPhaseIndicator" phase="<DataBinding source='intervalTimer.currentPhase' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Layout type="HorizontalButtons" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="CTAButton" text="Start" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='StartTimer' target='intervalTimer' />" />
+    <Component type="CTAButton" text="Pause" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='PauseTimer' target='intervalTimer' />" />
+    <Component type="CTAButton" text="Reset" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='ResetTimer' target='intervalTimer' />" />
+  </Layout>
+  <Component type="CTAButton" text="Save as Preset" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#520606" onPress="<Action type='ShowModal' target='SaveTimerPresetModal' />" margin="24 0 0 0" />
+</Layout>
+30. Optimize - Liberty Bells - Fasting Timer View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Fasting Timer" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="CircularProgressIndicator" progress="<DataBinding source='fastingTimer.progress' />" duration="<DataBinding source='fastingTimer.duration' />" />
+  <Component type="TimerDisplay" duration="<DataBinding source='fastingTimer.elapsedTime' />" font="Mandrel Ext" weight="Extra-bold" size="48" color="#FFFFFF" align="center" />
+  <Layout type="HorizontalScroll">
+    <Component type="FastingProtocolButton" protocol="16:8" onPress="<Action type='Update' target='fastingTimer.protocol' params='{ protocol: '16:8' }' />" />
+    <Component type="FastingProtocolButton" protocol="18:6" onPress="<Action type='Update' target='fastingTimer.protocol' params='{ protocol: '18:6' }' />" />
+    <Component type="FastingProtocolButton" protocol="20:4" onPress="<Action type='Update' target='fastingTimer.protocol' params='{ protocol: '20:4' }' />" />
+    <Component type="FastingProtocolButton" protocol="Custom" onPress="<Action type='ShowModal' target='CustomFastingProtocolModal' />" />
+  </Layout>
+  <Component type="TimeDisplay" startTime="<DataBinding source='fastingTimer.startTime' />" endTime="<DataBinding source='fastingTimer.endTime' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Component type="FastingStageIndicator" stage="<DataBinding source='fastingTimer.currentStage' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="HydrationRemindersToggle" isEnabled="<DataBinding source='fastingTimer.hydrationRemindersEnabled' />" onToggle="<Action type='Toggle' target='fastingTimer.hydrationRemindersEnabled' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Layout type="HorizontalButtons" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="CTAButton" text="Start" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='StartTimer' target='fastingTimer' />" />
+    <Component type="CTAButton" text="Pause" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='PauseTimer' target='fastingTimer' />" />
+    <Component type="CTAButton" text="End Fast" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='StopTimer' target='fastingTimer' />" />
+  </Layout>
+</Layout>
+
+
+
+
+
+
+
+Important Notes:
+
+I've used <DataBinding> extensively, assuming that most data will be dynamic. You'll need to define the actual data sources and formatting functions.
+I've introduced some custom components (e.g., StatLabel, ExerciseList, ExerciseVisual, etc.) to represent UI elements specific to the app. You'll need to implement these components in your React Native code.
+I've added placeholder actions for things like sharing, saving, and adding meal templates. Replace these with the appropriate API calls or navigation targets.
+I've tried to capture the layout and styling intent from the original wireframes as accurately as possible.
+Remember to adapt the target and params attributes in the <Action> tags to match your application's navigation and data flow.
+
+
+
+
+
+
+31. Optimize - Carbo-tracker + Carbo Timer View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Carb Tracker" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="CarbDisplay" carbs="<DataBinding source='user.dailyCarbIntake' />" goal="<DataBinding source='user.carbGoal' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Component type="MealCarbBreakdown" meals="<DataBinding source='user.mealCarbBreakdown' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="CarbCyclingPhaseIndicator" phase="<DataBinding source='user.carbCyclingPhase' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Component type="CarbRefeedTimer" duration="<DataBinding source='user.carbRefeedTimer' />" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" align="center" />
+  <Component type="CarbRecommendations" recommendations="<DataBinding source='user.carbRecommendations' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="CTAButton" text="Log Carb Intake" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='ShowModal' target='LogCarbIntakeModal' />" margin="24 0 0 0" />
+</Layout>
+32. The Frontier - Community Challenges Main View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="The Frontier Challenge Zone" font="Mandrel Ext" weight="Extra-bold" size="24" color="#96854A" />
+  </Header>
+  <Component type="FeaturedChallengeBanner" challenge="<DataBinding source='challenges.featuredChallenge' />" />
+  <Layout type="HorizontalTabs" tabs="['Featured', 'Popular', 'My Challenges']" activeTab="<DataBinding source='selectedTab' />" onTabChange="<Action type='Update' target='selectedTab' />" font="Poppins" size="16" color="#DAE1E9" />
+  <Component type="ChallengeCardList" challenges="<DataBinding source='challenges.challengeList' />" />
+  <Component type="SectionTitle" text="My Challenges" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+  <Component type="ChallengeList" challenges="<DataBinding source='user.activeChallenges' />" />
+  <Footer>
+    <Component type="TabNavigation" activeTab="Challenges" />
+  </Footer>
+</Layout>
+33. The Frontier - Challenge Attempt/Completion Feed View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="<DataBinding source='challenge.name' />" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Description" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="ChallengeDescription" description="<DataBinding source='challenge.description' />" rules="<DataBinding source='challenge.rules' />" font="Poppins" size="14" color="#DAE1E9" />
+  </Layout>
+  <Component type="ChallengeProgressTracker" progress="<DataBinding source='user.challengeProgress' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="CommunityFeed" updates="<DataBinding source='challenge.updates' />" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Leaderboard" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="LeaderboardPreview" leaderboard="<DataBinding source='challenge.leaderboard' />" />
+    <Component type="Link" text="View Full Leaderboard" onPress="<Action type='Navigation' target='ChallengeLeaderboardView' params='{ challengeId: challenge.id }' />" font="Poppins" size="14" color="#96854A" />
+  </Layout>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Achievements" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="AchievementList" achievements="<DataBinding source='challenge.achievements' />" />
+  </Layout>
+  <Layout type="HorizontalButtons" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="CTAButton" text="Post Update" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='ShowModal' target='PostChallengeUpdateModal' />" />
+    <Component type="CTAButton" text="View Leaderboard" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='ChallengeLeaderboardView' params='{ challengeId: challenge.id }' />" />
+  </Layout>
+</Layout>
+34. The Frontier - Challenge Dual View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Challenge Duel" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="HorizontalStack" justify="space-around">
+    <Component type="DualProgressBar" user="You" progress="<DataBinding source='user.duelProgress' />" />
+    <Component type="DualProgressBar" user="<DataBinding source='opponent.name' />" progress="<DataBinding source='opponent.duelProgress' />" />
+  </Layout>
+  <Component type="CountdownTimer" endTime="<DataBinding source='challenge.endTime' />" />
+  <Component type="DualActivityFeed" updates="<DataBinding source='duel.updates' />" />
+  <Layout type="HorizontalStack" justify="space-around">
+    <Component type="TeamRoster" team="<DataBinding source='user.team' />" />
+    <Component type="TeamRoster" team="<DataBinding source='opponent.team' />" />
+  </Layout>
+  <Component type="TeamChat" messages="<DataBinding source='duel.chatMessages' />" />
+  <Component type="CTAButton" text="Send Message" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='ShowModal' target='SendMessageModal' />" />
+</Layout>
+35. The Frontier - Challenge Team View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="<DataBinding source='team.name' />" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="TeamRoster" team="<DataBinding source='team.members' />" />
+  <Component type="TeamProgress" progress="<DataBinding source='team.progress' />" goal="<DataBinding source='challenge.goal' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Component type="TeamChat" messages="<DataBinding source='team.chatMessages' />" />
+  <Component type="CompetitionStandings" standings="<DataBinding source='challenge.standings' />" />
+  <Component type="TeamStrategySection" strategy="<DataBinding source='team.strategy' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Layout type="HorizontalButtons" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="CTAButton" text="Contribute Progress" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='ShowModal' target='ContributeProgressModal' />" />
+    <Component type="CTAButton" text="Message Team" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='TeamChatView' params='{ teamId: team.id }' />" />
+  </Layout>
+</Layout>
+36. The Frontier - Challenge Leaderboard View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Leaderboard" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="Leaderboard" entries="<DataBinding source='challenge.leaderboard' />" />
+  <Component type="MyRankingHighlight" user="You" rank="<DataBinding source='user.challengeRanking' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Layout type="HorizontalScroll">
+    <Component type="FilterButton" label="Friends" onPress="<Action type='Update' target='leaderboardFilter' params='{ filter: 'friends' }' />" />
+    <Component type="FilterButton" label="Local" onPress="<Action type='Update' target='leaderboardFilter' params='{ filter: 'local' }' />" />
+    <Component type="FilterButton" label="Global" onPress="<Action type='Update' target='leaderboardFilter' params='{ filter: 'global' }' />" />
+  </Layout>
+  <Component type="CTAButton" text="Share Ranking" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='Share' />" />
+</Layout>
+37. The Frontier - Challenge Achievements and Rewards View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Achievements" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="AchievementCardList" achievements="<DataBinding source='challenge.achievements' />" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Rewards" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="RewardList" rewards="<DataBinding source='challenge.rewards' />" font="Poppins" size="12" color="#DAE1E9" />
+  </Layout>
+  <Component type="RewardRedemptionSection" onRedeem="<Action type='API' target='user.redeemReward' />" font="Poppins" size="14" color="#FFFFFF" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="My Achievements" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="AchievementHistory" achievements="<DataBinding source='user.earnedAchievements' />" font="Poppins" size="14" color="#FFFFFF" />
+  </Layout>
+  <Component type="AchievementProgress" progress="<DataBinding source='user.achievementProgress' />" font="Poppins" size="12" color="#DAE1E9" />
+</Layout>
+38. The Census - Progress Logs Main View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="The Census" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="ProgressSummary" summary="<DataBinding source='user.overallProgressSummary' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="KeyMetricsDashboard" metrics="<DataBinding source='user.keyMetrics' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Recent Logs" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="RecentActivityLogs" logs="<DataBinding source='user.recentActivityLogs' />" font="Poppins" size="14" color="#FFFFFF" />
+  </Layout>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Progress Charts" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="ProgressCharts" charts="<DataBinding source='user.progressCharts' />" />
+  </Layout>
+  <Component type="GoalTrackingVisualization" goals="<DataBinding source='user.fitnessGoals' />" font="Poppins" size="14" color="#FFFFFF" />
+  <Component type="CTAButton" text="Add New Log Entry" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='ShowModal' target='AddLogEntryModal' />" margin="24 0 0 0" />
+</Layout>
+39. The Census - Trackers Collection View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Trackers" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="VerticalGrid" columns="2" spacing="16">
+    <Component type="TrackerCategoryCard" category="Workout Trackers" icon="workout" description="Track your strength and cardio progress." onPress="<Action type='Navigation' target='WorkoutTrackersView' />" />
+    <Component type="TrackerCategoryCard" category="Nutrition Trackers" icon="nutrition" description="Log your meals and monitor your diet." onPress="<Action type='Navigation' target='NutritionTrackersView' />" />
+    <Component type="TrackerCategoryCard" category="Body Measurement Trackers" icon="bodyMeasurement" description="Record changes in your body composition." onPress="<Action type='Navigation' target='BodyMeasurementTrackersView' />" />
+    <Component type="TrackerCategoryCard" category="Financial Fitness Trackers" icon="finance" description="Manage your fitness-related expenses." onPress="<Action type='Navigation' target='FinancialFitnessTrackersView' />" />
+    <Component type="TrackerCategoryCard" category="Step Counter" icon="steps" description="Monitor your daily steps and activity." onPress="<Action type='Navigation' target='StepCounterView' />" />
+  </Layout>
+  <Layout type="HorizontalScroll">
+    <Component type="RecentTrackerCard" tracker="<DataBinding source='user.recentTrackers[0]' />" />
+    <Component type="RecentTrackerCard" tracker="<DataBinding source='user.recentTrackers[1]' />" />
+  </Layout>
+  <Component type="CTAButton" text="Create Custom Tracker" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='CreateCustomTrackerView' />" margin="24 0 0 0" />
+</Layout>
+40. The Census - Financial Fitness Budget Tracker View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Financial Fitness" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="BudgetOverview" budget="<DataBinding source='user.monthlyBudget' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Layout type="HorizontalScroll">
+    <Component type="ExpenseCategoryTab" category="Equipment" onPress="<Action type='Update' target='selectedCategory' params='{ category: 'equipment' }' />" />
+    <Component type="ExpenseCategoryTab" category="Memberships" onPress="<Action type='Update' target='selectedCategory' params='{ category: 'memberships' }' />" />
+    <Component type="ExpenseCategoryTab" category="Events" onPress="<Action type='Update' target='selectedCategory' params='{ category: 'events' }' />" />
+    <Component type="ExpenseCategoryTab" category="Coaching" onPress="<Action type='Update' target='selectedCategory' params='{ category: 'coaching' }' />" />
+  </Layout>
+  <Component type="ExpenseVsBudgetChart" data="<DataBinding source='user.expenseData' />" />
+  <Component type="RecentTransactionsList" transactions="<DataBinding source='user.recentTransactions' />" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Savings Goals" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="SavingsGoalsList" goals="<DataBinding source='user.savingsGoals' />" font="Poppins" size="14" color="#FFFFFF" />
+  </Layout>
+  <Layout type="HorizontalButtons" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="CTAButton" text="Add Expense" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='ShowModal' target='AddExpenseModal' />" />
+    <Component type="CTAButton" text="Adjust Budget" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='ShowModal' target='AdjustBudgetModal' />" />
+  </Layout>
+</Layout>
+
+
+
+
+
+
+
+
+
+Key Improvements and Considerations:
+
+I have tried to be as precise as possible in mapping the original wireframe descriptions to the Code Descriptor system.
+I've used <DataBinding> tags to indicate where data will be dynamically loaded. You'll need to define the specific data sources and any necessary formatting functions.
+I've included <Action> tags for interactive elements, but you'll need to replace the placeholder targets (e.g., Navigation targets) with your actual screen or function names.
+I've introduced some custom components (e.g., CarbDisplay, MealCarbBreakdown, DualProgressBar, etc.) to represent UI elements that are specific to the app. You'll need to implement these components in your React Native code.
+I've paid close attention to layout using tags like <Layout type="HorizontalStack">, <Layout type="VerticalStack">, and <Layout type="HorizontalButtons">.
+I've added attributes for fonts, colors, and sizes based on the design guidelines.
+Remember to review the generated Code Descriptors carefully and adjust them as needed to ensure they accurately represent the intended UI and behavior.
+
+
+
+
+
+
+
+41. The Census - Step Counter View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Step Counter" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="StepCountDisplay" steps="<DataBinding source='user.dailySteps' />" goal="<DataBinding source='user.stepGoal' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Component type="WeeklyStepChart" data="<DataBinding source='user.weeklyStepData' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Layout type="HorizontalStack" justify="space-around">
+    <Component type="DistanceDisplay" distance="<DataBinding source='user.distanceCovered' />" font="Poppins" size="14" color="#DAE1E9" />
+    <Component type="CalorieEstimate" calories="<DataBinding source='user.caloriesBurned' />" font="Poppins" size="14" color="#DAE1E9" />
+  </Layout>
+  <Component type="StepStreakDisplay" streak="<DataBinding source='user.stepStreak' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="WalkingRouteMap" route="<DataBinding source='user.walkingRoute' />" />
+  <Component type="CTAButton" text="Set Step Goal" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='ShowModal' target='SetStepGoalModal' />" margin="24 0 0 0" />
+</Layout>
+42. Bill of Results - Detailed Analytics Reports View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Analytics" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="DataDashboard" data="<DataBinding source='user.analyticsData' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="TimePeriodSelector" period="<DataBinding source='selectedTimePeriod' />" onPeriodChange="<Action type='Update' target='selectedTimePeriod' />" />
+  <Layout type="HorizontalScroll">
+    <Component type="ReportCategoryTab" category="Weight/Body Composition" onPress="<Action type='Update' target='selectedReportCategory' params='{ category: 'weight' }' />" />
+    <Component type="ReportCategoryTab" category="Workout Performance" onPress="<Action type='Update' target='selectedReportCategory' params='{ category: 'workout' }' />" />
+    <Component type="ReportCategoryTab" category="Nutrition Adherence" onPress="<Action type='Update' target='selectedReportCategory' params='{ category: 'nutrition' }' />" />
+    <Component type="ReportCategoryTab" category="Sleep Quality" onPress="<Action type='Update' target='selectedReportCategory' params='{ category: 'sleep' }' />" />
+    <Component type="ReportCategoryTab" category="Recovery Metrics" onPress="<Action type='Update' target='selectedReportCategory' params='{ category: 'recovery' }' />" />
+  </Layout>
+  <Layout type="HorizontalButtons" justify="space-around">
+    <Component type="IconButton" icon="export" color="#FFFFFF" onPress="<Action type='API' target='data.exportReport' />" />
+    <Component type="IconButton" icon="share" color="#FFFFFF" onPress="<Action type='Share' />" />
+  </Layout>
+  <Layout type="HorizontalScroll">
+    <Component type="FilterButton" label="Metric Selection" onPress="<Action type='ShowModal' target='MetricSelectionModal' />" font="Poppins" size="12" color="#DAE1E9" />
+    <Component type="FilterButton" label="Date Range" onPress="<Action type='ShowModal' target='DateRangeFilterModal' />" font="Poppins" size="12" color="#DAE1E9" />
+    <Component type="FilterButton" label="Comparison" onPress="<Action type='ShowModal' target='ComparisonToolModal' />" font="Poppins" size="12" color="#DAE1E9" />
+  </Layout>
+</Layout>
+43. Subscription Tier View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Membership" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="HorizontalScroll">
+    <Component type="TierComparisonCard" tier="<DataBinding source='subscription.tiers[0]' />" onSelect="<Action type='API' target='subscription.upgrade' />" />
+    <Component type="TierComparisonCard" tier="<DataBinding source='subscription.tiers[1]' />" onSelect="<Action type='API' target='subscription.upgrade' />" />
+    <Component type="TierComparisonCard" tier="<DataBinding source='subscription.tiers[2]' />" onSelect="<Action type='API' target='subscription.upgrade' />" />
+  </Layout>
+  <Component type="CurrentTierIndicator" tier="<DataBinding source='user.currentTier' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Component type="PricingInformation" pricing="<DataBinding source='subscription.pricing' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="SpecialOffers" offers="<DataBinding source='subscription.offers' />" font="Poppins" size="14" color="#96854A" />
+  <Layout type="HorizontalButtons" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="CTAButton" text="Upgrade" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='Navigation' target='SubscriptionUpgradeView' />" />
+  </Layout>
+</Layout>
+44. Shopping - Branded and Affiliates View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Layout type="HorizontalScroll">
+      <Component type="CategoryTab" category="Apparel" onPress="<Action type='Update' target='selectedCategory' params='{ category: 'apparel' }' />" font="Poppins" size="16" color="#DAE1E9" />
+      <Component type="CategoryTab" category="Supplements" onPress="<Action type='Update' target='selectedCategory' params='{ category: 'supplements' }' />" font="Poppins" size="16" color="#DAE1E9" />
+      <Component type="CategoryTab" category="Equipment" onPress="<Action type='Update' target='selectedCategory' params='{ category: 'equipment' }' />" font="Poppins" size="16" color="#DAE1E9" />
+      <Component type="CategoryTab" category="Accessories" onPress="<Action type='Update' target='selectedCategory' params='{ category: 'accessories' }' />" font="Poppins" size="16" color="#DAE1E9" />
+    </Layout>
+  </Header>
+  <Component type="SearchBar" placeholder="Search Products" onSearch="<Action type='API' target='products.search' />" font="Poppins" size="16" color="#DAE1E9" background="#171717" border="#96854A" />
+  <Component type="ProductGrid" products="<DataBinding source='products.productList' />" />
+  <Layout type="HorizontalScroll">
+    <Component type="ProductCard" product="<DataBinding source='products.featuredProducts[0]' />" />
+    <Component type="ProductCard" product="<DataBinding source='products.featuredProducts[1]' />" />
+  </Layout>
+  <Component type="ShoppingCartIcon" itemCount="<DataBinding source='user.cartItemCount' />" onPress="<Action type='Navigation' target='CartView' />" />
+</Layout>
+45. Checkout Cart View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Your Cart" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="CartItemList" items="<DataBinding source='user.cart.items' />" onQuantityChange="<Action type='Update' target='item.quantity' />" onRemove="<Action type='Remove' target='user.cart.items' />" />
+  <Component type="OrderSummary" summary="<DataBinding source='user.cart.orderSummary' />" />
+  <Component type="PromoCodeInput" onApply="<Action type='API' target='order.applyPromoCode' />" font="Poppins" size="16" color="#DAE1E9" background="#171717" border="#96854A" placeholder="Enter Promo Code" />
+  <Layout type="HorizontalButtons" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="CTAButton" text="Checkout" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='Navigation' target='CheckoutProcessView' />" />
+  </Layout>
+</Layout>
+46. About Us View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="About 4-Score" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="BrandStory" text="<DataBinding source='aboutUs.brandStory' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Component type="FOURPhilosophyExplanation" text="<DataBinding source='aboutUs.fourPhilosophy' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Layout type="HorizontalScroll">
+    <Component type="TeamMemberCard" member="<DataBinding source='aboutUs.team[0]' />" />
+    <Component type="TeamMemberCard" member="<DataBinding source='aboutUs.team[1]' />" />
+  </Layout>
+  <Component type="MissionAndValues" mission="<DataBinding source='aboutUs.mission' />" values="<DataBinding source='aboutUs.values' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Layout type="HorizontalScroll">
+    <Component type="TestimonialCard" testimonial="<DataBinding source='aboutUs.testimonials[0]' />" />
+    <Component type="TestimonialCard" testimonial="<DataBinding source='aboutUs.testimonials[1]' />" />
+  </Layout>
+  <Component type="ContactInformation" contact="<DataBinding source='aboutUs.contact' />" font="Poppins" size="14" color="#DAE1E9" />
+</Layout>
+47. Calendar View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Calendar" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Layout type="HorizontalTabs" tabs="['Month', 'Week', 'Day']" activeTab="<DataBinding source='selectedView' />" onTabChange="<Action type='Update' target='selectedView' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="FullCalendar" events="<DataBinding source='user.calendarEvents' />" eventColors="{ workout: '#5D2121', meal: '#520606', challenge: '#96854A', recovery: '#4CAF50' }" />
+  <Component type="FloatingActionButton" icon="add" color="#FFFFFF" background="#5D2121" onPress="<Action type='ShowModal' target='AddEventModal' />" position="bottomRight" />
+  <Component type="EventDetailsPanel" details="<DataBinding source='selectedDateEvents' />" font="Poppins" size="14" color="#FFFFFF" />
+</Layout>
+48. Events View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Events" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="EventCardList" events="<DataBinding source='community.upcomingEvents' />" />
+  <Layout type="HorizontalScroll">
+    <Component type="EventCategoryTab" category="Workouts" onPress="<Action type='Update' target='eventFilter' params='{ category: 'workout' }' />" font="Poppins" size="14" color="#DAE1E9" />
+    <Component type="EventCategoryTab" category="Nutrition" onPress="<Action type='Update' target='eventFilter' params='{ category: 'nutrition' }' />" font="Poppins" size="14" color="#DAE1E9" />
+    <Component type="EventCategoryTab" category="Community" onPress="<Action type='Update' target='eventFilter' params='{ category: 'community' }' />" font="Poppins" size="14" color="#DAE1E9" />
+  </Layout>
+  <Component type="CTAButton" text="Create Event" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='CreateEventView' />" />
+</Layout>
+49. Swolemate Chatbot View
+XML
+
+<Layout type="ChatInterface" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Swolemate" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="ChatMessageList" messages="<DataBinding source='chatbot.messages' />" />
+  <Layout type="HorizontalScroll">
+    <Component type="QuickReplyButton" text="<DataBinding source='chatbot.quickReplies[0]' />" onPress="<Action type='API' target='chatbot.sendMessage' params='{ text: chatbot.quickReplies[0] }' />" />
+    <Component type="QuickReplyButton" text="<DataBinding source='chatbot.quickReplies[1]' />" onPress="<Action type='API' target='chatbot.sendMessage' params='{ text: chatbot.quickReplies[1] }' />" />
+  </Layout>
+  <Component type="ContextualRecommendations" recommendations="<DataBinding source='chatbot.recommendations' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="FitnessQuestionSuggestions" questions="<DataBinding source='chatbot.suggestedQuestions' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="ChatInput" placeholder="Type your message..." value="<DataBinding source='newMessage' />" onTextChange="<Action type='Update' target='newMessage' />" onSend="<Action type='API' target='chatbot.sendMessage' params='{ text: newMessage }' />" />
+</Layout>
+
+
+
+
+
+
+
+
+
+Key Considerations:
+
+I've consistently used the Code Descriptor tags.
+I've added more specific component types (e.g., ChatMessageList, FitnessQuestionSuggestions). You might need to adjust these.
+I've included actions for API calls (e.g., API target='chatbot.sendMessage'). Replace these with your actual API endpoint implementations.
+I've used <DataBinding> to connect UI elements to data. Ensure you define the data sources and formats correctly.
+I've tried to capture the layout and styling intent.
+Remember to refine the target and params in <Action> tags.
+
+
+
+
+
+
+
+
+
+
+
+50. The Apparatus - Camera View
+XML
+
+<Layout type="FullScreen" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Camera" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="CameraViewfinder" />
+  <Layout type="HorizontalButtons" justify="center" spacing="16" align="bottom">
+    <Component type="IconButton" icon="capture" color="#FFFFFF" onPress="<Action type='API' target='camera.capture' />" />
+    <Component type="IconButton" icon="switchCamera" color="#FFFFFF" onPress="<Action type='Toggle' target='camera.isFrontCamera' />" />
+    <Component type="IconButton" icon="gallery" color="#FFFFFF" onPress="<Action type='API' target='camera.openGallery' />" />
+  </Layout>
+  <Layout type="HorizontalTabs" tabs="['Photo', 'Video', 'Form Check', 'Progress Pic']" activeTab="<DataBinding source='camera.mode' />" onTabChange="<Action type='Update' target='camera.mode' />" font="Poppins" size="14" color="#FFFFFF" align="center" />
+  <Layout type="HorizontalButtons" justify="center" spacing="16" align="top">
+    <Component type="IconButton" icon="share" color="#FFFFFF" onPress="<Action type='Share' />" />
+  </Layout>
+</Layout>
+51. Pioneers - Coaches Feature View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Pioneers" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="CoachCarousel" coaches="<DataBinding source='coaches.featuredCoaches' />" />
+  <Layout type="HorizontalScroll">
+    <Component type="CoachCategoryTab" category="Strength Training" onPress="<Action type='Update' target='coachFilter' params='{ category: 'strength' }' />" font="Poppins" size="16" color="#FFFFFF" />
+    <Component type="CoachCategoryTab" category="Nutrition Coaching" onPress="<Action type='Update' target='coachFilter' params='{ category: 'nutrition' }' />" font="Poppins" size="16" color="#FFFFFF" />
+    <Component type="CoachCategoryTab" category="Yoga/Pilates" onPress="<Action type='Update' target='coachFilter' params='{ category: 'yoga' }' />" font="Poppins" size="16" color="#FFFFFF" />
+    <Component type="CoachCategoryTab" category="Endurance Training" onPress="<Action type='Update' target='coachFilter' params='{ category: 'endurance' }' />" font="Poppins" size="16" color="#FFFFFF" />
+  </Layout>
+  <Component type="CoachCardList" coaches="<DataBinding source='coaches.coachList' />" />
+  <Component type="CTAButton" text="Find a Coach" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='CoachMatchingView' />" margin="24 0 0 0" />
+</Layout>
+52. Pioneers - Coach Profile View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="CoachProfileHeader" coach="<DataBinding source='coach.profile' />" />
+  </Header>
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="CoachBio" bio="<DataBinding source='coach.bio' />" credentials="<DataBinding source='coach.credentials' />" font="Poppins" size="14" color="#DAE1E9" />
+  </Layout>
+  <Layout type="HorizontalScroll">
+    <Component type="CoachSpecialtyTab" specialty="<DataBinding source='coach.specialties[0]' />" />
+    <Component type="CoachSpecialtyTab" specialty="<DataBinding source='coach.specialties[1]' />" />
+  </Layout>
+  <Component type="CoachPhilosophy" philosophy="<DataBinding source='coach.philosophy' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Layout type="HorizontalScroll">
+    <Component type="TestimonialCard" testimonial="<DataBinding source='coach.testimonials[0]' />" />
+    <Component type="TestimonialCard" testimonial="<DataBinding source='coach.testimonials[1]' />" />
+  </Layout>
+  <Component type="ServicePricingList" services="<DataBinding source='coach.services' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Layout type="HorizontalScroll">
+    <Component type="TrainingPackageCard" package="<DataBinding source='coach.trainingPackages[0]' />" />
+    <Component type="TrainingPackageCard" package="<DataBinding source='coach.trainingPackages[1]' />" />
+  </Layout>
+  <Layout type="HorizontalButtons" justify="center" spacing="16" margin="24 0 0 0">
+    <Component type="CTAButton" text="Book Session" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='CoachBookingView' params='{ coachId: coach.id }' />" />
+    <Component type="CTAButton" text="Message" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#520606" onPress="<Action type='Navigation' target='ConversationView' params='{ userId: coach.userId }' />" />
+  </Layout>
+</Layout>
+53. Pioneers - Coach Payment/Checkout View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Booking" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="SelectedServiceDetails" service="<DataBinding source='booking.selectedService' />" font="Poppins" size="16" color="#FFFFFF" />
+  <Component type="CoachInformation" coach="<DataBinding source='booking.coach' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="PricingBreakdown" breakdown="<DataBinding source='booking.pricingBreakdown' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="PaymentMethodSelector" methods="<DataBinding source='user.paymentMethods' />" selectedMethod="<DataBinding source='booking.selectedPaymentMethod' />" onMethodSelect="<Action type='Update' target='booking.selectedPaymentMethod' />" />
+  <Component type="BookingDateTimeSelector" availableSlots="<DataBinding source='coach.availableSlots' />" selectedSlot="<DataBinding source='booking.selectedSlot' />" onSlotSelect="<Action type='Update' target='booking.selectedSlot' />" />
+  <Component type="TermsAcceptanceCheckbox" onAccept="<Action type='Toggle' target='booking.termsAccepted' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="CTAButton" text="Complete Booking" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" glow="blue" onPress="<Action type='API' target='booking.completeBooking' />" margin="24 0 0 0" />
+</Layout>
+54. Pioneers - Coach Live Video Chat View
+XML
+
+<Layout type="FullScreen" background="#171717">
+  <Header>
+    <Component type="CoachChatHeader" coach="<DataBinding source='session.coach' />" timer="<DataBinding source='session.elapsedTime' />" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" />
+  </Header>
+  <Component type="VideoChat" coachFeed="<DataBinding source='session.coachFeedUrl' />" userFeed="<DataBinding source='session.userFeedUrl' />" />
+  <Layout type="HorizontalButtons" justify="space-around" align="bottom">
+    <Component type="IconButton" icon="mute" color="#FFFFFF" onPress="<Action type='Toggle' target='session.isMuted' />" />
+    <Component type="IconButton" icon="cameraToggle" color="#FFFFFF" onPress="<Action type='Toggle' target='session.isCameraOn' />" />
+    <Component type="IconButton" icon="screenShare" color="#FFFFFF" onPress="<Action type='Toggle' target='session.isScreenShared' />" />
+    <Component type="IconButton" icon="formCheck" color="#FFFFFF" onPress="<Action type='Toggle' target='session.isFormCheckMode' />" />
+  </Layout>
+  <Component type="ChatSidebar" messages="<DataBinding source='session.chatMessages' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="CTAButton" text="End Call" font="Mandrel Ext" weight="Extra-bold" size="16" color="#FFFFFF" background="#5D2121" onPress="<Action type='API' target='session.endCall' />" />
+</Layout>
+55. Pioneers - Schedule/Calendar View
+XML
+
+<Layout type="ScrollVertical" background="#171717">
+  <Header>
+    <Component type="TitleBar" title="Coaching Schedule" font="Mandrel Ext" weight="Extra-bold" size="24" color="#FFFFFF" />
+  </Header>
+  <Component type="Calendar" events="<DataBinding source='user.coachingSchedule' />" eventColors="{ booked: '#5D2121', available: '#4CAF50' }" onDayPress="<Action type='Update' target='selectedDate' />" />
+  <Layout type="VerticalStack" spacing="24">
+    <Component type="SectionTitle" text="Session Details" font="Mandrel Ext" weight="Extra-bold" size="18" color="#FFFFFF" />
+    <Component type="SessionList" sessions="<DataBinding source='selectedDate.coachingSessions' />" font="Poppins" size="14" color="#DAE1E9" />
+  </Layout>
+  <Component type="CoachAvailabilityIndicator" availability="<DataBinding source='coach.availability' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="SessionTypeIndicators" types="<DataBinding source='coach.sessionTypes' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="UpcomingSessionReminders" reminders="<DataBinding source='user.upcomingCoachingSessions' />" font="Poppins" size="12" color="#DAE1E9" />
+  <Component type="ScheduleAdjustmentTools" onReschedule="<Action type='ShowModal' target='RescheduleSessionModal' />" font="Poppins" size="14" color="#DAE1E9" />
+  <Component type="CTAButton" text="Book New Session" font="Mandrel Ext" weight="Extra-bold" size="20" color="#FFFFFF" background="#5D2121" onPress="<Action type='Navigation' target='CoachProfileView' />" margin="24 0 0 0" />
+</Layout>
+
+
+
+
+
+
+
+
+
+Key Observations and Reminders:
+
+I've tried to be as accurate as possible in converting the wireframes.
+Remember to replace placeholder targets and data sources with your actual implementations.
+I've used custom components where appropriate.
+Pay close attention to the layout structures and styling attributes.
+Verify the generated Code Descriptors against your original design intent and adjust as needed.
+
+
+
