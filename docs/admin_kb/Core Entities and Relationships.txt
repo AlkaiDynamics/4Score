@@ -1,0 +1,151 @@
+Core Entities and Their Relationships:
+
+users Collection:
+
+One-to-many with trackers: Each user can have multiple custom trackers (e.g., tracking specific habits or measurements).
+One-to-many with planners: Each user can have multiple planners (meal, workout, sleep, etc.).
+One-to-many with sleepLogs: Each user will have a history of their sleep logs.
+One-to-many with bodyMeasurements: Each user will have a history of their body measurements.
+One-to-many with goals: Each user can set multiple fitness and wellness goals.
+One-to-one with cart (as a sub-document): Each user has a single shopping cart.
+Many-to-many with challenges: Users can participate in multiple challenges. This relationship is managed through the participants array in the challenges document.
+One-to-many with financialData (as a subcollection): Each user will have a history of their financial transactions related to fitness.
+coaches Collection:
+
+One-to-many with schedule (as a subcollection): Each coach has their availability schedule.
+Implicit many-to-many with users (through booking): Users book sessions with coaches, establishing a relationship tracked in the schedule subcollection.
+challenges Collection:
+
+Many-to-many with users: As mentioned above, tracked in the participants array.
+One-to-many with feed (as a subcollection): Each challenge has its own activity feed.
+events Collection:
+
+Many-to-many with users: Users can attend multiple events, tracked in the attendees array.
+blogPosts Collection:
+
+One-to-many with potential comments subcollection (future enhancement): Each blog post could have comments from users.
+products Collection:
+
+Many-to-many with users (through cart and orders): Users add products to their carts and purchase them in orders.
+orders Collection:
+
+One-to-one with users (via userId): Each order is associated with one user.
+Data Flow Examples:
+
+Tracking a Workout:
+
+User initiates a workout (Forge views).
+Progress data might be stored temporarily in the app's state or Realtime Database for live updates (Liberty Bells - Workout Timer View).
+Upon completion, workout details (duration, exercises, stats) are written as a new log in the user's trackers subcollection (under the "workout" tracker type). This might also trigger updates to the user's stats document (workoutsCompleted, totalProgress).
+Logging Nutrition:
+
+User logs a meal (Optimize views), entering food items and quantities.
+This data is stored as a new log in the user's trackers subcollection (under the "nutrition" tracker type), including calorie and macro information.
+The daily carb consumption (Carbo-tracker + Carbo Timer View) would likely be a derived value calculated from these nutrition logs.
+Joining a Challenge:
+
+User selects a challenge (The Frontier views) and joins.
+The user's ID is added to the participants array in the challenges document.
+The user might also have a corresponding entry in the challenges array in their users document.
+Progress updates during the challenge (Challenge Attempt/Completion Feed View, Challenge Dual View, Challenge Team View) would update the progress map in the challenges document.
+Messaging a Coach (Pony Express):
+
+Messages between users and coaches would likely be stored in a separate chats collection with documents containing message history, sender/receiver IDs, and timestamps. The users and coaches documents would likely have references to these chat documents.
+Booking a Coach (Pioneers):
+
+User selects an available time slot in the coach's schedule (Pioneers - Schedule/Calendar View).
+A new document is created in the coach's schedule subcollection, marking the slot as booked and linking it to the user's ID.
+Considerations for Scalability and Complexity:
+
+Indexing: As your data grows, ensure you have appropriate indexes on fields you frequently query (e.g., userId, challengeId, timestamp, category).
+Data Duplication (Denormalization): In some cases, you might choose to duplicate certain pieces of data across documents to optimize read performance. For example, a challenge participant's username might be duplicated in the challenge's leaderboard for faster display without needing to query the users collection for each participant. Be mindful of the trade-offs between read performance and data consistency when denormalizing.
+Subcollections vs. Top-Level Collections: Use subcollections to organize data that is tightly related to a parent document (e.g., trackers belonging to a user). Use top-level collections for independent entities (e.g., coaches, challenges).
+This expanded view of the schema highlights the relationships between your core data entities and provides examples of how data might flow through the system based on user interactions in the different views. Understanding these relationships is crucial for designing efficient queries and ensuring data consistency as you build your application.
+
+---
+
+[source: 170] entities and relationships
+
+{
+  "entities": {
+    "users": {
+      "relationships": [
+        { "type": "one-to-many", "target": "trackers", "descriptor": "<Relationship type='OneToMany' target='trackers' />" },
+        { "type": "one-to-many", "target": "planners", "descriptor": "<Relationship type='OneToMany' target='planners' />" },
+        { "type": "one-to-many", "target": "sleepLogs", "descriptor": "<Relationship type='OneToMany' target='sleepLogs' />" },
+        { "type": "one-to-many", "target": "bodyMeasurements", "descriptor": "<Relationship type='OneToMany' target='bodyMeasurements' />" },
+        { "type": "one-to-many", "target": "goals", "descriptor": "<Relationship type='OneToMany' target='goals' />" },
+        { "type": "one-to-one", "target": "cart", "storage": "subdocument", "descriptor": "<Relationship type='OneToOne' target='cart' storage='subdocument' />" },
+        { "type": "many-to-many", "target": "challenges", "via": "participants", "descriptor": "<Relationship type='ManyToMany' target='challenges' via='participants' />" },
+        { "type": "one-to-many", "target": "financialData", "storage": "subcollection", "descriptor": "<Relationship type='OneToMany' target='financialData' storage='subcollection' />" }
+      ]
+    },
+    "coaches": {
+      "relationships": [
+        { "type": "one-to-many", "target": "schedule", "storage": "subcollection", "descriptor": "<Relationship type='OneToMany' target='schedule' storage='subcollection' />" },
+        { "type": "many-to-many", "target": "users", "via": "schedule.bookings", "descriptor": "<Relationship type='ManyToMany' target='users' via='schedule.bookings' />" }
+      ]
+    },
+    "challenges": {
+      [source: 172] "relationships": [
+        { "type": "many-to-many", "target": "users", "via": "participants", "descriptor": "<Relationship type='ManyToMany' target='users' via='participants' />" },
+        { "type": "one-to-many", "target": "feed", "storage": "subcollection", "descriptor": "<Relationship type='OneToMany' target='feed' storage='subcollection' />" }
+      ]
+    },
+    "events": {
+      "relationships": [
+        { "type": "many-to-many", "target": "users", "via": "attendees", "descriptor": "<Relationship type='ManyToMany' target='users' via='attendees' />" }
+      ]
+    },
+    "blogPosts": {
+      "relationships": [
+        { "type": [source: 173] "one-to-many", "target": "comments", "storage": "subcollection", "optional": true, "descriptor": "<Relationship type='OneToMany' target='comments' storage='subcollection' optional='true' />" }
+      ]
+    },
+    "products": {
+      "relationships": [
+        { "type": "many-to-many", "target": "users", "via": "cart and orders", "descriptor": "<Relationship type='ManyToMany' target='users' via='cartAndOrders' />" }
+      ]
+    },
+    "orders": {
+      "relationships": [
+        { "type": "one-to-one", "target": "users", "key": "userId", "descriptor": "<Relationship type='OneToOne' target='users' key='userId' />" }
+      ]
+    },
+    "chats": {
+      [source: 174] "dataFields": [
+        { "name": "participants", "type": "array", "itemType": "user or coach ID", "descriptor": "<DataType type='array' itemType='string' />" },
+        { "name": "messages", "type": "array", "itemType": "message object", "descriptor": "<DataType type='array' itemType='object' />" }
+      ],
+      "relationships": [
+        { "type": "many-to-many", "target": "users and coaches", "descriptor": "<Relationship type='ManyToMany' target='usersAndCoaches' />" }
+      ]
+    },
+    "trackers": {
+      "parent": "users",
+      "dataFields": [
+        [source: 175] { "name": "type", "type": "enum", "values": ["workout", "nutrition", "sleep", "hydration", "mood"], "descriptor": "<DataType type='enum' values='workout,nutrition,sleep,hydration,mood' />" },
+        { "name": "entries", "type": "array", "itemType": "log", "descriptor": "<DataType type='array' itemType='object' />" }
+      ]
+    },
+    "planners": {
+      "parent": "users",
+      "dataFields": [
+        { "name": "type", "type": "enum", "values": ["meal", "workout", "sleep", "finance", "friends"], "descriptor": "<DataType type='enum' values='meal,workout,sleep,finance,friends' />" },
+        { "name": "schedule", "type": "calendar object", "descriptor": "<DataType type='object' />" }
+      ]
+      [source: 176] }
+  },
+  "indexRecommendations": [
+    { "field": "userId" },
+    { "field": "challengeId" },
+    { "field": "timestamp" }
+  ],
+  "denormalizationNotes": [
+    { "field": "username", "location": "challenges.leaderboard" }
+  ],
+  "structureGuidelines": [
+    { "type": "subcollection", "useFor": ["user-specific logs", "private session data"] },
+    { "type": "top-level", "useFor": ["independent entities like coaches, products, blogPosts"] }
+  ]
+}
