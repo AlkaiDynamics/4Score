@@ -11,60 +11,58 @@ import kotlinx.coroutines.flow.StateFlow
  * Service class for handling Firebase Authentication operations
  * Implements accessibility-first approach with clear visual feedback and error handling
  */
-class AuthService {
+class AuthService(
+    // Dependency injection for testability
     private val auth: FirebaseAuth = FirebaseConfig.getAuth()
-    
+) {
     // Observable state flows for authentication state
     private val _currentUser = MutableStateFlow<FirebaseUser?>(auth.currentUser)
     val currentUser: StateFlow<FirebaseUser?> = _currentUser
     
-    private val _authState = MutableStateFlow<AuthState>(AuthState.Initial)
+    private val _authState = MutableStateFlow(
+        if (auth.currentUser != null) AuthState(true, auth.currentUser)
+        else AuthState(false, null)
+    )
     val authState: StateFlow<AuthState> = _authState
     
     init {
         // Listen for authentication state changes
         auth.addAuthStateListener { firebaseAuth ->
             _currentUser.value = firebaseAuth.currentUser
-            if (firebaseAuth.currentUser != null) {
-                _authState.value = AuthState.Authenticated
+            _authState.value = if (firebaseAuth.currentUser != null) {
+                AuthState(true, firebaseAuth.currentUser)
             } else {
-                _authState.value = AuthState.Unauthenticated
+                AuthState(false, null)
             }
         }
     }
     
     /**
-     * Register a new user with email and password
+     * Sign in with email and password
      * @param email User email
      * @param password User password
      * @return AuthResult containing success or error information
      */
-    suspend fun registerUser(email: String, password: String): AuthResult {
+    suspend fun signInWithEmailAndPassword(email: String, password: String): AuthResult {
         return try {
-            _authState.value = AuthState.Loading
-            val result = auth.createUserWithEmailAndPassword(email, password).await()
-            _authState.value = AuthState.Authenticated
+            val result = auth.signInWithEmailAndPassword(email, password).await()
             AuthResult.Success(result.user)
         } catch (e: Exception) {
-            _authState.value = AuthState.Error(getErrorMessage(e))
             AuthResult.Error(getErrorMessage(e))
         }
     }
     
     /**
-     * Login with email and password
+     * Create a new user with email and password
      * @param email User email
      * @param password User password
      * @return AuthResult containing success or error information
      */
-    suspend fun loginUser(email: String, password: String): AuthResult {
+    suspend fun createUserWithEmailAndPassword(email: String, password: String): AuthResult {
         return try {
-            _authState.value = AuthState.Loading
-            val result = auth.signInWithEmailAndPassword(email, password).await()
-            _authState.value = AuthState.Authenticated
+            val result = auth.createUserWithEmailAndPassword(email, password).await()
             AuthResult.Success(result.user)
         } catch (e: Exception) {
-            _authState.value = AuthState.Error(getErrorMessage(e))
             AuthResult.Error(getErrorMessage(e))
         }
     }
@@ -74,14 +72,11 @@ class AuthService {
      * @param email User email
      * @return AuthResult containing success or error information
      */
-    suspend fun resetPassword(email: String): AuthResult {
+    suspend fun sendPasswordResetEmail(email: String): AuthResult {
         return try {
-            _authState.value = AuthState.Loading
             auth.sendPasswordResetEmail(email).await()
-            _authState.value = AuthState.PasswordResetEmailSent
             AuthResult.Success(null)
         } catch (e: Exception) {
-            _authState.value = AuthState.Error(getErrorMessage(e))
             AuthResult.Error(getErrorMessage(e))
         }
     }
@@ -91,7 +86,6 @@ class AuthService {
      */
     fun signOut() {
         auth.signOut()
-        _authState.value = AuthState.Unauthenticated
     }
     
     /**
@@ -121,6 +115,18 @@ class AuthService {
             else -> "Authentication failed: ${exception.message}. Please try again."
         }
     }
+    
+    /**
+     * Backward compatibility methods for existing code
+     */
+    suspend fun loginUser(email: String, password: String): AuthResult = 
+        signInWithEmailAndPassword(email, password)
+    
+    suspend fun registerUser(email: String, password: String): AuthResult = 
+        createUserWithEmailAndPassword(email, password)
+    
+    suspend fun resetPassword(email: String): AuthResult = 
+        sendPasswordResetEmail(email)
 }
 
 /**
@@ -132,14 +138,10 @@ sealed class AuthResult {
 }
 
 /**
- * Sealed class representing authentication states
+ * Data class representing authentication state
  * Used for providing clear visual feedback in the UI
  */
-sealed class AuthState {
-    object Initial : AuthState()
-    object Loading : AuthState()
-    object Authenticated : AuthState()
-    object Unauthenticated : AuthState()
-    object PasswordResetEmailSent : AuthState()
-    data class Error(val message: String) : AuthState()
-}
+data class AuthState(
+    val isAuthenticated: Boolean,
+    val user: FirebaseUser?
+)

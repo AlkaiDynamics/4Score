@@ -2,6 +2,7 @@ package com.alkaidynamics.fourscore.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alkaidynamics.fourscore.data.firebase.AuthResult
 import com.alkaidynamics.fourscore.data.firebase.AuthService
 import com.alkaidynamics.fourscore.data.firebase.AuthState
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,10 +16,10 @@ import java.util.regex.Pattern
  * ViewModel for the Login screen
  * Implements accessibility-first approach with clear visual feedback and error handling
  */
-class LoginViewModel : ViewModel() {
-    // Authentication service
-    private val authService = AuthService()
-    
+class LoginViewModel(
+    // Dependency injection for testability
+    private val authService: AuthService = AuthService()
+) : ViewModel() {
     // Form state
     private val _email = MutableStateFlow("")
     val email: StateFlow<String> = _email.asStateFlow()
@@ -40,6 +41,14 @@ class LoginViewModel : ViewModel() {
     val canSubmit = combine(_isEmailValid, _isPasswordValid) { emailValid, passwordValid ->
         emailValid && passwordValid
     }
+    
+    // Loading state
+    private val _isLoading = MutableStateFlow(false)
+    val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
+    
+    // Error state
+    private val _error = MutableStateFlow<String?>(null)
+    val error: StateFlow<String?> = _error.asStateFlow()
     
     // Authentication state
     val authState: StateFlow<AuthState> = authService.authState
@@ -95,19 +104,39 @@ class LoginViewModel : ViewModel() {
     
     /**
      * Attempt to login with current credentials
+     * Provides clear loading and error states for accessibility
      */
     fun login() {
         if (!canSubmit.value) return
         
         viewModelScope.launch {
-            authService.loginUser(_email.value, _password.value)
+            _isLoading.value = true
+            _error.value = null
             
-            // If remember me is checked, store credentials securely
-            // This would typically use encrypted shared preferences or a secure storage solution
-            if (_rememberMe.value) {
-                // Implementation would go here
-                // For security reasons, we're not actually storing credentials in this example
+            val result = authService.signInWithEmailAndPassword(_email.value, _password.value)
+            
+            when (result) {
+                is AuthResult.Success -> {
+                    // Login successful
+                    // If remember me is checked, store credentials securely
+                    if (_rememberMe.value) {
+                        // Implementation would go here
+                        // For security reasons, we're not actually storing credentials in this example
+                    }
+                }
+                is AuthResult.Error -> {
+                    _error.value = result.message
+                }
             }
+            
+            _isLoading.value = false
         }
+    }
+    
+    /**
+     * Clear any error messages
+     */
+    fun clearError() {
+        _error.value = null
     }
 }

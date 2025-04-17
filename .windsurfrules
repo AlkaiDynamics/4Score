@@ -6,7 +6,9 @@
 -   Implement step-by-step wizards for complex workflows
 -   Provide visual progress indicators
 -   Include clear error recovery paths
--   Support keyboard navigation throughout
+-   Map ALL affected files before ANY changes
+-   NEVER create a file without first verifying if it exists
+-   Follow our workflows exactly as specified
 
 ## Documentation & Communication:
 -   Document ALL steps in a clear, numbered format
@@ -149,11 +151,10 @@
 -   Add visual examples
 -   Maintain quick-reference guides
 
-# VI. Testing Practices:
--   Write tests continuously with features/fixes
--   Test expected functionality, edge cases, and failure points
--   Test features/changes in isolation first
--   Explain failures; enable rapid debugging
+-   Write, perform, and validate tests continuously with features/fixes
+-   Test expected functionality, edge cases, and failure points.
+-   Test features/changes in isolation first.
+-   Explain failures; enable rapid debugging.
 -   Run full test suite in 'Test' environment after feature tests pass
 -   Address failures promptly: Fix code regression/bug OR update test for intended changes
 -   Commit ONLY after all tests pass
@@ -162,6 +163,8 @@
 -   Prioritize testing critical paths (auth, data, core logic, payments)
 -   Improve code quality; don't just 'fix' tests to pass
 -   Apply 100-200 line limit to test files
--   Use separate Dev/Test/Prod envs/DBs consistently
--   Avoid unlabeled mock data/placeholders in tests
+-   Use separate Dev/Test/Prod environments/DBs consistently
+-   Avoid mock data/placeholders in tests, but label well when required
 -   Remove redundant/unused test code promptly
+-   Follow these RULES
+-   STOP and read ALL rules before EVERY action

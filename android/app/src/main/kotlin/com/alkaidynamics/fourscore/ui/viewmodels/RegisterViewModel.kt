@@ -184,7 +184,7 @@ class RegisterViewModel : ViewModel() {
         return when {
             score <= 2 -> PasswordStrength.WEAK
             score <= 4 -> PasswordStrength.MEDIUM
-            score <= 6 -> PasswordStrength.STRONG
+            score < 6 -> PasswordStrength.STRONG
             else -> PasswordStrength.VERY_STRONG
         }
     }

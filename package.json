@@ -43,7 +43,11 @@
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json}",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "emulators": "firebase emulators:start --only auth,firestore,storage",
+    "emulators:export": "firebase emulators:export ./emulator-data",
+    "emulators:import": "firebase emulators:start --import=./emulator-data --only auth,firestore,storage",
+    "compile:rules": "fireward -i ./firestore/fireward.config.js -o ./firestore.rules"
   },
   "eslintConfig": {
     "extends": [
@@ -72,6 +76,11 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.8.7"
+    "firebase-tools": "^12.4.0",
+    "fireward": "^1.6.0",
+    "prettier": "^2.8.7",
+    "@testing-library/react-native": "^12.1.2",
+    "jest": "^29.5.0",
+    "react-test-renderer": "^18.2.0"
   }
 }
