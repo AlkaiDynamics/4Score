@@ -79,6 +79,23 @@
 -   Implement clear security feedback
 -   Show security status indicators
 
+# VI. Testing Practices:
+-   Write tests continuously with features/fixes.
+-   Test expected functionality, edge cases, and failure points.
+-   Test features/changes in isolation first.
+-   Explain failures; enable rapid debugging.
+-   Run full test suite in 'Test' environment after feature tests pass.
+-   Address failures promptly: Fix code regression/bug OR update test for intended changes.
+-   Commit ONLY after all tests pass.
+-   Maintain tests alongside code (update/remove as needed).
+-   Automate test execution where feasible (hooks, CI/CD).
+-   Prioritize testing critical paths (auth, data, core logic, payments).
+-   Improve code quality; don't just 'fix' tests to pass.
+-   Apply 100-200 line limit to test files.
+-   Use separate Dev/Test/Prod environments/DBs consistently.
+-   Avoid unlabeled mock data/placeholders in tests.
+-   Remove redundant/unused test code promptly.
+
 # II. Technology-Specific Conventions:
 
 ## React Native:
@@ -148,20 +165,3 @@
 -   Create user guides
 -   Add visual examples
 -   Maintain quick-reference guides
-
-# VI. Testing Practices:
--   Write tests continuously with features/fixes
--   Test expected functionality, edge cases, and failure points
--   Test features/changes in isolation first
--   Explain failures; enable rapid debugging
--   Run full test suite in 'Test' environment after feature tests pass
--   Address failures promptly: Fix code regression/bug OR update test for intended changes
--   Commit ONLY after all tests pass
--   Maintain tests alongside code (update/remove as needed)
--   Automate test execution where feasible (hooks, CI/CD)
--   Prioritize testing critical paths (auth, data, core logic, payments)
--   Improve code quality; don't just 'fix' tests to pass
--   Apply 100-200 line limit to test files
--   Use separate Dev/Test/Prod envs/DBs consistently
--   Avoid unlabeled mock data/placeholders in tests
--   Remove redundant/unused test code promptly
