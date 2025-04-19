@@ -1,0 +1,641 @@
+4-Score Fitness App Wireframes
+Authentication & Onboarding Views
+
+1. Landing Page View
+Header: Navy blue banner with presidential seal watermark, 4-Score logo centered
+Hero Section: Bold patriotic imagery with American flag elements
+Content:
+App value proposition highlighting F.O.U.R. SCORE framework
+App screenshots carousel showing key features
+Testimonials section with user success stories
+CTA Buttons:
+"Sign Up" button (deep red #5D2121, gold border, blue glow)
+"Learn More" button (navy blue #520606, gold border)
+Footer: F.O.U.R. principles briefly highlighted with icons
+
+2. Sign-in View
+Header: Navy blue banner with presidential seal, 4-Score logo
+Form:
+Username/Email field (dark background, gold border)
+Password field with visibility toggle
+"Remember Me" checkbox
+"Forgot Password?" link (gold text)
+Sign-in button (deep red, blue glow)
+Alternative: "Sign up" link for new users
+Footer: Legal text, privacy policy link
+
+. Sign-up/Register View
+Header: Same as sign-in
+Form:
+Username field
+Email field
+Password and confirm password fields
+Basic info fields (optional)
+Terms acceptance checkbox
+Registration Button: Deep red with blue glow
+Alternative: "Already have an account? Sign in" link
+
+4. Reset Password View
+Header: Navy blue with presidential seal
+Content:
+Email input field
+Security verification
+Submit button (deep red, blue glow)
+Footer: Support contact information
+
+5. Sign-out View
+Modal Overlay:
+Confirmation message
+"Sign Out" button (deep red)
+"Cancel" button (navy)
+"Remember me" toggle option
+Core Navigation Views
+
+6. The Range (Home View)
+Header: Navy blue banner with presidential seal watermark
+Scrollable Content:
+Quick stats dashboard (today's progress)
+F.O.U.R. buttons in 2×2 grid (Forge, Optimize, Unite, Recover)
+Featured blog articles (3-5 cards)
+Stacked feature sections (1×4 vertical):
+Forge section with workout preview
+Optimize section with nutrition summary
+Unite section with community updates
+Recover section with sleep metrics
+Calendar widget showing scheduled activities
+Events section with upcoming community events
+Trackers collection preview
+Liberty Bells timers preview
+Maps integration section
+Wearables connection section
+Persistent Elements:
+F.O.U.R. bottom navigation tabs
+Swolemate chatbot button (bottom right corner)
+
+7. User Profile View
+Header: Profile banner with user image
+Content:
+User details section with name
+Action buttons: "Show Data", "Edit Profile"
+Stats section with 4 metric cards (workouts, streak, progress, hydration)
+Activity feed with recent actions
+Community posts & challenges section with notification toggle
+Invite section with code generator and share button
+Navigation: F.O.U.R. bottom tabs plus profile icon
+
+8. User Settings View
+Header: Navy blue with "Settings" title
+Content:
+Account settings section
+Notification preferences toggles
+Privacy controls
+App appearance settings
+Subscription management link
+Data management options
+Support and feedback links
+Action Buttons: Save changes button (deep red, blue glow)
+
+9. User Account View
+Header: Navy blue with "Account" title
+Content:
+Profile information summary
+Subscription status
+Billing information
+Payment history
+Account security options
+Connected services list
+Action Buttons: Edit account (navy), manage subscription (deep red)
+Forge (Workout) Views
+
+10. Forge - Workout Planner View
+Header: Navy blue with presidential seal, "Forge" title
+Content:
+Workout category tabs (horizontally scrollable)
+Workout cards with:
+Workout name (bold, uppercase)
+Duration, energy, difficulty metrics
+Preview of exercises
+Start button (deep red with blue glow)
+"Create Custom Workout" button (gold border)
+Recent workouts section
+Navigation: F.O.U.R. tabs with Forge highlighted
+
+11. Forge - Workout Detail View
+Header: Navy blue with workout name
+Content:
+Workout stats bar (time, energy, difficulty)
+Exercise list with:
+Exercise icon/thumbnail
+Name and description
+Sets/reps/duration values
+Chevron for detailed view
+Start button (prominent, deep red with blue glow)
+Share and save options
+Navigation: Back button, F.O.U.R. tabs
+
+12. Forge - Active Workout View
+Header: Timer display with workout name
+Content:
+Current exercise details
+Progress indicators (exercise X of Y)
+Visual demonstration (image/animation)
+Controls: previous, pause/play, next
+Rep counter (if applicable)
+Footer: Quick access to remaining exercises
+
+13. Forge - Workout Calendar View
+Header: Navy blue with "Workout Calendar" title
+Content:
+Month view calendar with workout indicators
+Day detail section showing scheduled workouts
+Quick add workout button
+Upcoming workout reminders
+Navigation: F.O.U.R. tabs with Forge highlighted
+
+14. Forge - Workout Tracker View
+Header: Navy blue with "Workout History" title
+Content:
+Timeline view of completed workouts
+Stats summary (total workouts, favorite types)
+Progress graphs (strength, endurance, etc.)
+Achievement highlights
+Filters: Date range, workout type, metrics
+Optimize (Nutrition) Views
+
+15. Optimize - Nutrition Planning View
+Header: Navy blue with "Optimize" title
+Content:
+Meal plan tabs (today, week view)
+Meal cards for breakfast, lunch, dinner, snacks
+Each card shows:
+Meal name and time
+Calorie and macro info
+Food thumbnails
+Edit button
+Nutrition summary with macro breakdown
+Recommended meals section
+Action Button: "Plan New Meal" (deep red, blue glow)
+
+16. Optimize - Nutrition Calendar View
+Header: Navy blue with "Meal Calendar" title
+Content:
+Calendar view with meal indicators
+Day detail showing all planned meals
+Nutrition totals for selected day
+Quick meal template options
+Navigation: F.O.U.R. tabs with Optimize highlighted
+
+17. Optimize - Instacart Ordering View
+Header: Navy blue with "Grocery Order" title
+Content:
+Ingredient list from meal plan
+Quantity adjustments
+Alternative suggestions
+Instacart integration button
+Order summary with estimated cost
+Action Buttons: "Add to Cart", "Checkout"
+
+18. Optimize - Nutrition Supplement View
+Header: Navy blue with "Supplements" title
+Content:
+Current supplement regimen
+Recommended supplements based on goals
+Supplement cards with:
+Name and image
+Benefits description
+Dosage information
+"Add to Regimen" button
+Integration with shop for purchasing
+
+19. Optimize - Nutrition Tracker View
+Header: Navy blue with "Nutrition Log" title
+Content:
+Daily food log entries
+Quick add food button
+Barcode scanner access
+Calorie and macro progress bars
+Water intake tracker
+Nutrition insights section
+Unite (Social) Views
+
+20. Unite - Social Hub Main View
+Header: Navy blue with "Unite" title
+Content:
+Community feed with posts from connections
+Post creation card at top
+Post types: workouts, meals, achievements, questions
+Interaction buttons: like, comment, share
+Trending topics section
+Suggested connections
+Navigation: F.O.U.R. tabs with Unite highlighted
+
+21. Unite - Social Calendar View
+Header: Navy blue with "Community Calendar" title
+Content:
+Calendar view with community events
+Event cards with:
+Event name and type
+Date and time
+Participation count
+"Join" button
+My events section
+Create event button (for eligible users)
+
+22. Pony Express - Messaging Main View
+Header: Navy blue with "Messages" title
+Content:
+Conversation list with:
+User avatar and name
+Preview of last message
+Timestamp
+Unread indicators
+Search contacts field
+New message button
+Message filtering options
+
+23. Pony Express - Message Conversation View
+Header: Conversation name with user avatar
+Content:
+Message bubbles (navy for sent, deep red for received)
+Timestamp indicators
+Media sharing options
+Typing indicator
+Workout/meal plan sharing tools
+Input: Message field with send button (blue glow)
+Recover (Rest & Recovery) Views
+
+24. Recover - Sleep Tracker Summary View
+Header: Navy blue with "Recover" title
+Content:
+Sleep score card with overall rating
+Last night's sleep details
+Sleep quality graphs
+Weekly sleep pattern visualization
+Sleep recommendations based on data
+Action Button: "Set Sleep Goal" (deep red, blue glow)
+
+25. Recover - Sleep Log View
+Header: Navy blue with "Sleep Log" title
+Content:
+Calendar view with sleep quality indicators
+Daily sleep entries with:
+Duration and quality rating
+Sleep and wake times
+Disturbances noted
+Weekly and monthly averages
+Export data option
+
+26. Recover - Sleep Timer View
+Header: Navy blue with "Sleep Timer" title
+Content:
+Set bedtime and wake time controls
+Sleep sounds selection
+Alarm configuration
+Smart wake-up window setting
+Sleep routine reminder options
+Action Button: "Start Sleep Timer" (deep red, blue glow)
+
+27. Recover - Sleep Schedule Calendar View
+Header: Navy blue with "Sleep Schedule" title
+Content:
+Calendar showing sleep/wake pattern
+Consistency metrics
+Schedule adjustment tools
+Sleep debt calculator
+Optimization recommendations
+Liberty Bells (Timers) Views
+
+28. Liberty Bells - Timers Collection View
+Header: Navy blue with "Liberty Bells" title
+Content:
+Timer category cards:
+Workout timers
+Fasting timers
+Sleep timers
+Custom timers
+Recent timers section
+Quick start buttons for favorites
+Action Button: "Create New Timer" (deep red, blue glow)
+
+29. Forge - Liberty Bells - Workout Timer View
+Header: Navy blue with workout timer type
+Content:
+Large timer display
+Interval visualization
+Work/rest period indicators
+Sound/vibration settings
+Timer controls: start, pause, reset
+Save as preset option
+
+30. Optimize - Liberty Bells - Fasting Timer View
+Header: Navy blue with "Fasting Timer" title
+Content:
+Circular progress indicator
+Current fast duration
+Fast type selection (16:8, 20:4, etc.)
+Start/end time display
+Fasting stage indicators
+Hydration reminders
+Action Buttons: Start, pause, end fast
+
+31. Optimize - Carbo-tracker + Carbo Timer View
+Header: Navy blue with "Carb Tracker" title
+Content:
+Daily carb consumption display
+Meal-by-meal carb breakdown
+Carb cycling phase indicator
+Timer for carb refeed window
+Recommendations based on workout schedule
+Action Button: Log carb intake
+The Frontier (Challenges) Views
+
+32. The Frontier - Community Challenges Main View
+Header: Deep red with "The Frontier Challenge Zone" in gold text
+Content:
+Featured challenge banner
+Challenge category tabs
+Challenge cards with:
+Challenge name (bold, uppercase)
+Description and duration
+Difficulty indicator
+Participation count
+"Join Challenge" button (blue glow)
+My active challenges section
+Navigation: F.O.U.R. tabs with appropriate highlight
+
+33. The Frontier - Challenge Attempt/Completion Feed View
+Header: Deep red with challenge name
+Content:
+Challenge description and rules
+Progress tracker
+Community feed of participants' updates
+Leaderboard preview
+Achievement milestones
+Action Buttons: Post update, view leaderboard
+
+34. The Frontier - Challenge Dual View
+Header: Deep red with "Challenge Duel" title
+Content:
+Head-to-head comparison display
+User vs opponent stats
+Progress bars for both participants
+Activity feed with dual updates
+Countdown to challenge end
+Action Button: Send encouragement/taunt
+
+35. The Frontier - Challenge Team View
+Header: Deep red with team name
+Content:
+Team roster with individual contributions
+Team progress toward goal
+Team chat/message board
+Competition standings
+Team strategy section
+Action Buttons: Contribute progress, message team
+
+36. The Frontier - Challenge Leaderboard View
+Header: Deep red with "Leaderboard" title
+Content:
+Ranking list with:
+Position numbers
+User avatars/names
+Progress metrics
+Achievement badges
+My ranking highlight
+Filter options (friends, local, global)
+Action Button: Share ranking
+
+37. The Frontier - Challenge Achievements and Rewards View
+Header: Deep red with "Achievements" title
+Content:
+Achievement cards with:
+Badge icon and name
+Requirements to earn
+Completion status
+Associated rewards
+Reward redemption section
+Achievement history
+Progress toward next achievements
+The Census (Analytics) Views
+
+38. The Census - Progress Logs Main View
+Header: Navy blue with "The Census" title
+Content:
+Overall progress summary
+Key metrics dashboard
+Recent logs section
+Progress charts and graphs
+Goal tracking visualization
+Action Button: Add new log entry
+
+39. The Census - Trackers Collection View
+Header: Navy blue with "Trackers" title
+Content:
+Tracker category cards:
+Workout trackers
+Nutrition trackers
+Body measurement trackers
+Financial fitness trackers
+Step counter
+Quick access to recent trackers
+Action Button: Create custom tracker
+
+40. The Census - Financial Fitness Budget Tracker View
+Header: Navy blue with "Financial Fitness" title
+Content:
+Monthly budget overview
+Fitness-related expense categories
+Expense vs. budget visualization
+Recent transactions list
+Savings goals for fitness equipment/events
+Action Buttons: Add expense, adjust budget
+
+41. The Census - Step Counter View
+Header: Navy blue with "Step Counter" title
+Content:
+Daily step count with progress to goal
+Weekly step chart
+Distance and calorie estimates
+Step streak information
+Walking route map integration
+Action Button: Set step goal
+
+42. Bill of Results - Detailed Analytics Reports View
+Header: Navy blue with "Analytics" title
+Content:
+Comprehensive data dashboard
+Customizable time period selector
+Report categories:
+Weight/body composition
+Workout performance
+Nutrition adherence
+Sleep quality
+Recovery metrics
+Export and share options
+Filters: Metric selection, date range, comparison tools
+Additional Features
+
+43. Subscription Tier View
+Header: Navy blue with "Membership" title
+Content:
+Tier comparison cards:
+Free tier features
+Premium tier features
+Elite tier features
+Current tier indicator
+Pricing information
+Special offers
+Action Buttons: Upgrade options (deep red, blue glow)
+
+44. Shopping - Branded and Affiliates View
+Header: Navy blue with category tabs
+Content:
+Search bar with gold border
+Product cards with:
+Product image
+Name and description
+Price in gold text
+"Add to Cart" button (green)
+Category filters
+Featured products section
+Navigation: Shopping cart icon with item count
+
+45. Checkout Cart View
+Header: Navy blue with "Your Cart" title
+Content:
+Cart item list with:
+Product thumbnails
+Names and prices
+Quantity controls
+Remove option
+Order summary
+Promo code field
+Shipping options
+Action Button: "Checkout" (deep red, blue glow)
+
+46. About Us View
+Header: Navy blue with "About 4-Score" title
+Content:
+Brand story with patriotic theme
+F.O.U.R. philosophy explanation
+Team/founders section
+Mission and values
+Testimonials from users
+Contact information
+
+47. Calendar View
+Header: Navy blue with "Calendar" title
+Content:
+Month/week/day view options
+Events color-coded by type:
+Workouts (deep red)
+Meals (navy blue)
+Challenges (gold)
+Recovery (green)
+Add event button
+Day detail panel showing scheduled activities
+
+48. Events View
+Header: Navy blue with "Events" title
+Content:
+Upcoming events list
+Event cards with:
+Event name and type
+Date, time, location
+Participation info
+"Join" button
+Event categories
+Create event option (for eligible users)
+
+49. Swolemate Chatbot View
+Header: Navy blue with "Swolemate" title
+Content:
+Chat interface with:
+AI messages in deep red bubbles
+User messages in navy bubbles
+Quick reply suggestions
+Typing indicator
+Contextual recommendations
+Fitness question suggestions
+Input: Message field with send button
+Persistent: Minimized chatbot button on all app screens
+
+50. The Apparatus - Camera View
+Header: Navy blue with "Camera" title
+Content:
+Camera viewfinder
+Capture controls
+Mode selection:
+Photo
+Video
+Form check
+Progress pic
+Gallery access
+Sharing options
+
+51. Pioneers - Coaches Feature View
+Header: Navy blue with "Pioneers" title
+Content:
+Featured coaches carousel
+Coach specialty categories
+Coach cards with:
+Profile photo
+Name and credentials
+Specialty areas
+Rating and reviews
+"View Profile" button
+Matching service for finding ideal coach
+
+52. Pioneers - Coach Profile View
+Header: Coach name with profile image
+Content:
+Bio and credentials
+Specialty areas
+Training philosophy
+Client testimonials
+Available services and pricing
+Training packages
+Action Buttons: "Book Session", "Message"
+
+53. Pioneers - Coach Payment/Checkout View
+Header: Navy blue with "Booking" title
+Content:
+Selected service details
+Coach information
+Pricing breakdown
+Payment method selection
+Booking date/time selection
+Terms acceptance
+Action Button: "Complete Booking" (deep red, blue glow)
+
+54. Pioneers - Coach Live Video Chat View
+Header: Coach name with session timer
+Content:
+Video feed (coach and user)
+Audio controls
+Chat sidebar for notes/links
+Screen sharing option
+Form check tools
+Session recording option
+Action Buttons: End call, mute, camera toggle
+
+55. Pioneers - Schedule/Calendar View
+Header: Navy blue with "Coaching Schedule" title
+Content:
+Calendar with booked sessions
+Available time slots
+Coach availability indicator
+Session type indicators
+Upcoming session reminders
+Reschedule tools
+Action Button: "Book New Session"
+
+Each view consistently maintains the brand elements:
+
+Dark theme (#171717) background
+Navy blue (#520606) and deep red (#5D2121) primary colors
+Dirty/worn white (#DAE1E9) text
+Metallic gold/brass (#96854A) accents and borders
+Presidential seal as subtle background on banners
+Blue glow effect on primary action buttons
+F.O.U.R. framework consistently represented in navigation and organization"""

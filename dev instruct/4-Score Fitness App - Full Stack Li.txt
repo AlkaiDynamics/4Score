@@ -1,0 +1,125 @@
+# 4-Score Fitness App – Full Technology Stack  
+**Purpose**: Define the complete architecture, frameworks, languages, tools, services, and integrations supporting the development, deployment, and maintenance of the 4-Score Fitness mobile application.
+
+---
+
+## I. Programming Languages
+
+| Language   | Purpose                                                                 |
+|------------|-------------------------------------------------------------------------|
+| JavaScript | Core language for frontend UI development (React Native)                |
+| TypeScript | Optional typing layer for improved reliability in UI logic              |
+| Python     | AI routines, backend adapters, flow orchestration, data processing      |
+| Node.js    | Cloud Functions, backend logic, API services                            |
+| HTML       | Landing page structure (via Firebase Hosting)                           |
+| CSS        | Styling for landing page and embedded UI (e.g., FireCMS, WebViews)      |
+
+---
+
+## II. Frontend (Client-Side)
+
+| Technology / Library         | Purpose                                                                 |
+|-----------------------------|-------------------------------------------------------------------------|
+| React Native                | Cross-platform mobile application framework                            |
+| Victory.js                  | Mobile-first data visualization (XP, goals, progress)                  |
+| Recharts                    | Supplementary data visualization (calendars, budget tracking)          |
+| formkit/auto-animate        | Smooth UI transitions and animations                                   |
+| Expo Camera                 | Cross-platform camera functionality (photos, video capture)            |
+| CameraX (Android)           | Native Android camera integration                                      |
+| Expo AV                     | Audio playback for sleep sounds / white noise                          |
+| Google Maps SDK / API       | Route visualization, geolocation, check-ins                           |
+| Google One Tap              | Seamless login UX                                                       |
+| Custom Timer UI             | Visual timers for workouts, fasting, and carb cycling                  |
+| Native Calendar UI Adapter  | Display and interact with Google Calendar events                       |
+| Chatbot UI Components       | Custom chat interface (inspired by ChatGPT UI)                         |
+| WebView                     | Embedded views (e.g., Gumroad, motion-canvas tutorials)                |
+
+---
+
+## III. Backend (Server-Side and Cloud Infrastructure)
+
+| Technology / Service        | Purpose                                                                 |
+|-----------------------------|-------------------------------------------------------------------------|
+| Firebase Firestore          | Primary NoSQL document-based database                                   |
+| Firebase Realtime DB        | Real-time synchronization (chat, timers, duels)                         |
+| Firebase Auth               | Authentication via email, phone, social logins, with 2FA                |
+| Firebase Cloud Functions    | Serverless logic (background jobs, API integrations, XP engine)         |
+| Firebase Storage            | Media asset hosting (uploads, white noise, profile pics)               |
+| Firebase Hosting            | Static content delivery (landing page, admin UI)                        |
+| Firebase Analytics          | User engagement, feature usage tracking                                |
+| Firebase Extensions         | Plug-in features: email (SendGrid), Stripe, BigQuery export             |
+| Node.js (Express, Next.js)  | Custom backend logic or API routing (fallback if Firebase is insufficient) |
+| Python                      | Data adapters, AI logic, backend analytics pipelines                    |
+| Fireward                    | Firestore schema compiler for typed rule generation                    |
+
+---
+
+## IV. Infrastructure and DevOps
+
+| Tool / Platform             | Purpose                                                                 |
+|-----------------------------|-------------------------------------------------------------------------|
+| Git + GitHub                | Source control, versioning, CI/CD triggers                             |
+| Firebase Emulator Suite     | Local backend simulation and testing                                   |
+| Postman / Insomnia          | API endpoint development and testing                                   |
+| Firetable                   | Admin-friendly data management (spreadsheet interface for Firestore)    |
+| FireCMS                     | Visual CMS for blogs, meal plans, workouts, supplements                 |
+| RevenueCat SDK              | Subscription tier logic, paywall enforcement, App Store sync            |
+
+---
+
+## V. Integrations and External APIs
+
+| Integration / SDK           | Purpose                                                                 |
+|-----------------------------|-------------------------------------------------------------------------|
+| Health Connect (Android)    | Sync user health data (steps, sleep) with Android ecosystem             |
+| Google Fit SDK              | Access health metrics from Android devices                              |
+| Dialogflow                  | Swolemate chatbot NLP, natural language handling                        |
+| Claude (optional scale)     | Advanced AI/chat logic fallback system                                  |
+| Looker Studio               | Dashboard and analytics visualization                                  |
+| PayPal SDK                  | MVP payment solution                                                    |
+| Stripe SDK                  | Future payment infrastructure (gear, subscriptions)                     |
+| Google Calendar API         | OAuth embed and native rendering of event calendar                      |
+| Instacart API               | Order groceries directly from meal planner                             |
+| SendGrid                    | Transactional email delivery                                            |
+| Mailchimp / Zapier          | Newsletter and workflow automation                                     |
+| Meta Graph API              | Facebook and Instagram login, content sharing                          |
+| Gumroad (embed)             | Lightweight MVP branded gear shop                                      |
+| Spoonacular API             | Nutrition database for meals/supplements (white-label ready)           |
+| vercel/og-image             | Dynamic image generation for achievements                              |
+
+---
+
+## VI. Admin Interfaces & Content Management
+
+| Tool / Service              | Purpose                                                                 |
+|-----------------------------|-------------------------------------------------------------------------|
+| Firebase Console            | Centralized admin interface for Firebase services                      |
+| Firetable                   | Spreadsheet-style data entry/editing (custom trackers, challenges)     |
+| FireCMS                     | Admin UI for managing dynamic content (blogs, meals, etc.)             |
+
+---
+
+## VII. Compliance and Security
+
+| Compliance Standard         | Purpose                                                                 |
+|-----------------------------|-------------------------------------------------------------------------|
+| HIPAA                       | Ensure data handling meets U.S. health data protection requirements     |
+| 2FA                         | Two-factor authentication for enhanced account security                 |
+| Firebase Security Rules     | Access control and data validation policies for Firestore/Storage       |
+
+---
+
+## VIII. Modular Fitness Architecture (Conceptual Layer)
+
+| Component                   | Purpose                                                                 |
+|-----------------------------|-------------------------------------------------------------------------|
+| ExerciseDB + Firestore      | Exercises metadata library for planner and preview                      |
+| XP Engine (Cloud Functions) | Gamified logic: XP, streaks, achievements, reward tiers                 |
+| Timer Engine                | Interval tracking for workouts, refeed windows, etc. (Realtime DB)      |
+| Motion APIs                 | Step/motion tracking via Health Connect and device sensors              |
+| Coaching Layer              | Profile booking, chat, video via Firestore + Daily.co                  |
+| Planner Engine              | Firestore-based calendar/task engine for sleep, meals, workouts         |
+
+---
+
+This structure is now fully ready for internal documentation systems (GitHub Wiki, Notion, Confluence), product briefs, and onboarding materials. Let me know if you’d like this exported to Markdown, PDF, or imported into a doc tool.
